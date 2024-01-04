@@ -1,0 +1,17 @@
+{
+  "colors" : {
+    "main": {
+      "0" : {
+        "light" : {
+          "normal" : "#F6F6F6",
+          "high" : "#FFFFFF"
+        },
+        "dark" : {
+          "normal" : "#333333",
+          "high" : "#000000"
+        }
+      }
+
+    }
+  }
+}
