@@ -9,13 +9,13 @@ const config: StorybookConfig = {
       '../src/**/*.mdx',
       '../src/**/*.stories.@(ts|tsx)'
   ],
+  typescript: {
+    reactDocgen: 'react-docgen', // or false if you don't need docgen at all
+  },
   // Optional
   addons: [
       '@storybook/addon-essentials',
   ],
-  docs: {
-    autodocs: 'tag',
-  },
   staticDirs: ['../public'],
 };
 

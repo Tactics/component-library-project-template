@@ -1,8 +1,8 @@
 import {useContext} from "react";
 import {ContrastCtx} from "../context/theme-contrast-context";
-import {Contrast} from "../contrast";
+import {Contrast} from "../enum/contrast";
 
-export const useContrastContext = () => {
+export const useContrastContext = () : Contrast => {
     try {
         return useContext(ContrastCtx);
     } catch (error) {

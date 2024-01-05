@@ -1,20 +1,18 @@
 import {useContrastContext} from "./use-contrast-context";
 import {useThemeContext} from "./use-theme-context";
-import {Contrast} from "../contrast";
+import {Contrast} from "../enum/contrast";
+import {ThemeColors} from "../contracts/theme";
 
-export const useThemeColorContext = () => {
+export const useThemeColorContext = () : ThemeColors => {
 
     const contrast = useContrastContext();
-    console.log('color');
-    console.log(contrast);
     const theme = useThemeContext();
 
-    switch (contrast) {
-        case Contrast.LIGHT:
-            return theme.light;
-        case Contrast.DARK:
-            return theme.dark;
-        case Contrast.HIGH_CONTRAST:
-            return theme.contrast;
-    }
+    const mapping: Record<Contrast, ThemeColors> = {
+        [Contrast.LIGHT]: theme.colors.light,
+        [Contrast.DARK]: theme.colors.dark,
+        [Contrast.HIGH_CONTRAST]: theme.colors.contrast,
+    };
+
+    return mapping[contrast] || theme.colors.light;
 };
