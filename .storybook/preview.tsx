@@ -1,6 +1,6 @@
 import React from 'react';
-import { Preview, StoryContext } from '@storybook/react';
-import { Globals } from '@storybook/types';
+import {Preview, StoryContext} from '@storybook/react';
+import {Globals} from '@storybook/types';
 import {CreateTheme, CreateThemeColors, CreateThemeFonts} from "../.theme/create";
 import {BaseTheme} from "../.theme/base-theme";
 import {Theme} from "../.theme/contracts/theme";
@@ -8,8 +8,6 @@ import {Contrast} from "../.theme/enum/contrast";
 import {ThemeCtx} from "../.theme/context/theme-context";
 import {ContrastCtx} from "../.theme/context/theme-contrast-context";
 import {createGlobalStyle} from "styled-components";
-import {ExecutionProps} from "styled-components/dist/types";
-import {Props} from "@mdx-js/react/lib";
 
 
 const Base = BaseTheme;
@@ -89,7 +87,6 @@ const RubikDoodleShadow = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
 `;
 
-
 const preview: Preview = {
     globalTypes: {
         theme: {
@@ -122,8 +119,7 @@ const preview: Preview = {
             const theme_key: string | undefined = context.globals?.theme;
             const theme = theme_key && themes[theme_key] ? themes[theme_key] : default_theme;
 
-            const provider =
-            <>
+            return <>
                 <NotoSans/>
                 <RubikDoodleShadow/>
                 <ContrastCtx.Provider value={contrast}>
@@ -132,7 +128,6 @@ const preview: Preview = {
                     </ThemeCtx.Provider>
                 </ContrastCtx.Provider>
             </>;
-            return provider;
         },
     ],
 };
