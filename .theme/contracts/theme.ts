@@ -4,9 +4,15 @@ export type EmSize = `${string}em`;
 export type PxSize = `${string}px`;
 
 export interface ThemeColorVariant {
+    tint_1 : HexColor
+    tint_2 : HexColor
+    tint_3 : HexColor
     tint_4 : HexColor
     regular : HexColor
     tint_6 : HexColor
+    tint_7 : HexColor
+    tint_8 : HexColor
+    tint_9 : HexColor
 }
 
 export interface ThemeColors {
@@ -21,6 +27,7 @@ export interface ThemeContrastColors {
 }
 
 export interface Theme {
+    resources: ThemeResourcesList
     colors: ThemeContrastColors
     typography: ThemeFonts
 }
@@ -51,6 +58,8 @@ export interface ThemeFonts {
     secondary : ThemeFontVariant
     tertiary: ThemeFontVariant
 }
+
+export interface ThemeResourcesList extends Array<string> {}
 
 export interface PartialThemeTypography {
     fonts : Partial<PartialThemeFonts>
@@ -116,4 +125,5 @@ export interface PartialThemeColors {
     main : Partial<ThemeColorVariant>
     secondary : Partial<ThemeColorVariant>
 }
+
 

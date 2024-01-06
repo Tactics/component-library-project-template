@@ -1,15 +1,13 @@
 import {
-    EmSize,
     HexColor,
     PartialThemeColors,
-    PartialThemeFonts, PartialThemeTypography, PxSize, RemSize,
+    PartialThemeTypography,
     Theme,
     ThemeColors,
     ThemeContrastColors,
-    ThemeFonts, ThemeFontVariant
+    ThemeFonts, ThemeResourcesList,
 } from "./contracts/theme";
-import {TextType} from "./enum/text-type";
-import {create} from "@storybook/theming/create";
+
 import {
     base_font_size_2xl,
     base_font_size_3xl,
@@ -52,6 +50,7 @@ interface createFontParams {
 }
 
 interface createThemeParams {
+    resources: ThemeResourcesList,
     colors : ThemeContrastColors,
     fonts: ThemeFonts
 }
@@ -364,45 +363,137 @@ export const CreateThemeColors = ({baseTheme, light, dark, contrast} : createThe
 
     function buildColors(themeColors : object, baseColors : ThemeColors) {
 
-        const color_main_tint5 = orDefault(
+        const color_main_regular = orDefault(
             themeColors,
             baseColors.main.regular,
             ['main', 'regular']
         );
 
-        const color_secondary_tint5 = orDefault(
+        const color_secondary_regular = orDefault(
             themeColors,
             baseColors.secondary.regular,
             ['secondary', 'regular']
         );
 
+        const color_main_tint4 = orDefault(
+            themeColors,
+            color_main_regular,
+            ['main', 'tint4']
+        );
+
+        const color_main_tint3 = orDefault(
+            themeColors,
+            color_main_tint4,
+            ['main', 'tint3']
+        );
+
+        const color_main_tint2 = orDefault(
+            themeColors,
+            color_main_tint3,
+            ['main', 'tint2']
+        );
+
+        const color_main_tint1 = orDefault(
+            themeColors,
+            color_main_tint2,
+            ['main', 'tint1']
+        );
+
+        const color_main_tint6 = orDefault(
+            themeColors,
+            color_main_regular,
+            ['main', 'tint6']
+        );
+
+        const color_main_tint7 = orDefault(
+            themeColors,
+            color_main_tint6,
+            ['main', 'tint7']
+        );
+
+        const color_main_tint8 = orDefault(
+            themeColors,
+            color_main_tint7,
+            ['main', 'tint8']
+        );
+
+        const color_main_tint9 = orDefault(
+            themeColors,
+            color_main_tint8,
+            ['main', 'tint9']
+        );
+
+        const color_secondary_tint4 = orDefault(
+            themeColors,
+            color_secondary_regular,
+            ['secondary', 'tint4']
+        );
+
+        const color_secondary_tint3 = orDefault(
+            themeColors,
+            color_secondary_tint4,
+            ['secondary', 'tint3']
+        );
+
+        const color_secondary_tint2 = orDefault(
+            themeColors,
+            color_secondary_tint3,
+            ['secondary', 'tint2']
+        );
+
+        const color_secondary_tint1 = orDefault(
+            themeColors,
+            color_secondary_tint2,
+            ['secondary', 'tint1']
+        );
+
+        const color_secondary_tint6 = orDefault(
+            themeColors,
+            color_secondary_regular,
+            ['secondary', 'tint6']
+        );
+
+        const color_secondary_tint7 = orDefault(
+            themeColors,
+            color_secondary_tint6,
+            ['secondary', 'tint7']
+        );
+
+        const color_secondary_tint8 = orDefault(
+            themeColors,
+            color_secondary_tint7,
+            ['secondary', 'tint8']
+        );
+
+        const color_secondary_tint9 = orDefault(
+            themeColors,
+            color_secondary_tint8,
+            ['secondary', 'tint9']
+        );
+
 
         return {
             main: {
-                regular: color_main_tint5,
-                tint_4: orDefault(
-                    themeColors,
-                    color_main_tint5,
-                    ['main', 'tint_4']
-                ),
-                tint_6: orDefault(
-                    themeColors,
-                    color_main_tint5,
-                    ['main', 'tint_6']
-                ),
+                tint_1: color_main_tint1,
+                tint_2: color_main_tint2,
+                tint_3: color_main_tint3,
+                tint_4: color_main_tint4,
+                regular: color_main_regular,
+                tint_6: color_main_tint6,
+                tint_7: color_main_tint7,
+                tint_8: color_main_tint8,
+                tint_9: color_main_tint9,
             },
             secondary: {
-                regular: color_secondary_tint5,
-                tint_4: orDefault(
-                    themeColors,
-                    color_secondary_tint5,
-                    ['main', 'tint_4']
-                ),
-                tint_6: orDefault(
-                    themeColors,
-                    color_secondary_tint5,
-                    ['main', 'tint_6']
-                ),
+                tint_1: color_secondary_tint1,
+                tint_2: color_secondary_tint2,
+                tint_3: color_secondary_tint3,
+                tint_4: color_secondary_tint4,
+                regular: color_secondary_regular,
+                tint_6: color_secondary_tint6,
+                tint_7: color_secondary_tint7,
+                tint_8: color_secondary_tint8,
+                tint_9: color_secondary_tint9,
             },
         }
     }
@@ -418,8 +509,9 @@ export const CreateThemeColors = ({baseTheme, light, dark, contrast} : createThe
     }
 }
 
-export const CreateTheme = ({colors, fonts} : createThemeParams) : Theme => {
+export const CreateTheme = ({resources, colors, fonts} : createThemeParams) : Theme => {
     return  {
+        resources: resources,
         typography: fonts,
         colors: colors
     }

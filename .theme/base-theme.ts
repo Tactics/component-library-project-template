@@ -44,6 +44,7 @@ export const base_font_size_9xl = '8rem';
 export const base_line_height_9xl = '1';
 
 export const BaseTheme : Theme = {
+    resources: [],
     typography: {
       main: {
           xs: base_font_size_xs + '/' + base_line_height_xs  + ' ' + base_main_font,
@@ -94,38 +95,74 @@ export const BaseTheme : Theme = {
     colors: {
         light: {
             main: {
+                tint_1: '#333333',
+                tint_2: '#333333',
+                tint_3: '#333333',
                 tint_4: '#333333',
                 regular: '#333333',
-                tint_6: '#FFFFFF'
+                tint_6: '#FFFFFF',
+                tint_7: '#FFFFFF',
+                tint_8: '#FFFFFF',
+                tint_9: '#FFFFFF'
             },
             secondary: {
+                tint_1: '#333333',
+                tint_2: '#333333',
+                tint_3: '#333333',
                 tint_4: '#333333',
                 regular: '#333333',
-                tint_6: '#FFFFFF'
+                tint_6: '#FFFFFF',
+                tint_7: '#FFFFFF',
+                tint_8: '#FFFFFF',
+                tint_9: '#FFFFFF'
             },
         },
         dark: {
             main: {
+                tint_1: '#333333',
+                tint_2: '#333333',
+                tint_3: '#333333',
                 tint_4: '#333333',
                 regular: '#333333',
-                tint_6: '#333333'
+                tint_6: '#FFFFFF',
+                tint_7: '#FFFFFF',
+                tint_8: '#FFFFFF',
+                tint_9: '#FFFFFF'
             },
             secondary: {
+                tint_1: '#333333',
+                tint_2: '#333333',
+                tint_3: '#333333',
                 tint_4: '#333333',
                 regular: '#333333',
-                tint_6: '#333333'
+                tint_6: '#FFFFFF',
+                tint_7: '#FFFFFF',
+                tint_8: '#FFFFFF',
+                tint_9: '#FFFFFF'
             },
         },
         contrast: {
             main: {
+                tint_1: '#333333',
+                tint_2: '#333333',
+                tint_3: '#333333',
                 tint_4: '#333333',
                 regular: '#333333',
-                tint_6: '#333333'
+                tint_6: '#FFFFFF',
+                tint_7: '#FFFFFF',
+                tint_8: '#FFFFFF',
+                tint_9: '#FFFFFF'
             },
             secondary: {
+                tint_1: '#333333',
+                tint_2: '#333333',
+                tint_3: '#333333',
                 tint_4: '#333333',
                 regular: '#333333',
-                tint_6: '#333333'
+                tint_6: '#FFFFFF',
+                tint_7: '#FFFFFF',
+                tint_8: '#FFFFFF',
+                tint_9: '#FFFFFF'
             },
         }
     }

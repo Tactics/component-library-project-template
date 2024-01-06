@@ -3,10 +3,10 @@ import {Preview, StoryContext} from '@storybook/react';
 import {Globals} from '@storybook/types';
 import {CreateTheme, CreateThemeColors, CreateThemeFonts} from "../.theme/create";
 import {BaseTheme} from "../.theme/base-theme";
-import {Theme} from "../.theme/contracts/theme";
+import {Theme, ThemeResourcesList} from "../.theme/contracts/theme";
 import {Contrast} from "../.theme/enum/contrast";
 import {ThemeCtx} from "../.theme/context/theme-context";
-import {ContrastCtx} from "../.theme/context/theme-contrast-context";
+import {ThemeContrastCtx} from "../.theme/context/theme-contrast-context";
 import {createGlobalStyle} from "styled-components";
 
 
@@ -14,6 +14,20 @@ const Base = BaseTheme;
 
 const Antwerpen = CreateTheme(
     {
+        resources:
+        [
+            "@font-face { font-family: \"Antwerpen Small\"; font-style: \"normal\"; font-weight: 500; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/AntwerpenSmallCaps-Regular.woff) format(\"woff\"); }",
+            "@font-face { font-family: \"Antwerpen Regular\"; font-style: \"normal\"; font-weight: 500; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/Antwerpen-Regular.woff) format(\"woff\"); }",
+            "@font-face { font-family: \"Antwerpen Tall\"; font-style: \"normal\"; font-weight: 500; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/AntwerpenTall-Tall.woff) format(\"woff\"); }",
+            "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"normal\"; font-weight: 300; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Light.woff) format(\"woff\"); }",
+            "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"italic\"; font-weight: 300; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Light-Italic.woff) format(\"woff\"); }",
+            "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"normal\"; font-weight: 500; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Regular.woff) format(\"woff\"); }",
+            "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"italic\"; font-weight: 500; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Regular-Italic.woff) format(\"woff\"); }",
+            "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"normal\"; font-weight: 700; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Bold.woff) format(\"woff\"); }",
+            "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"italic\"; font-weight: 700; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Bold-Italic.woff) format(\"woff\"); }",
+            "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"normal\"; font-weight: 800; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-ExtraBold.woff) format(\"woff\"); }",
+            "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"italic\"; font-weight: 800 src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-ExtraBold-Italic.woff) format(\"woff\"); }"
+        ],
         colors:
             CreateThemeColors(
                 {
@@ -35,7 +49,7 @@ const Antwerpen = CreateTheme(
                 {
                     typography: {
                         fonts: {
-                            main: 'Noto Sans'
+                            main: 'Antwerpen Regular'
                         }
                     }
                 }
@@ -45,6 +59,9 @@ const Antwerpen = CreateTheme(
 
 const Mechelen = CreateTheme(
     {
+        resources: [
+            '@import url(\'https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap\');'
+        ],
         colors:
             CreateThemeColors(
                 {
@@ -79,13 +96,26 @@ const contrasts: Record<string, Contrast> = {
 };
 const [default_contrast_key, default_contrast] = Object.entries(contrasts)[0];
 
-const NotoSans = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
-`;
+const ThemeResources = createGlobalStyle<{ resources?: ThemeResourcesList; }>`
+  ${
+    props => (props.resources?.map(function (resource) { return resource}))
+  }
+`
 
-const RubikDoodleShadow = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
-`;
+const buildProvidersTree = ( componentsWithProps : any ) => {
+    const initialComponent = ({ children } : any ) => <> { children } </>
+    return componentsWithProps.reduce(
+        (AccumulatedComponents : any , [Provider, props = {}] : any ) => {
+            return ({children} : any ) => {
+                return (
+                    <AccumulatedComponents>
+                        <Provider {...props}>{children}</Provider>
+                    </AccumulatedComponents>
+                );
+            };
+        }
+    , initialComponent);
+};
 
 const preview: Preview = {
     globalTypes: {
@@ -119,14 +149,18 @@ const preview: Preview = {
             const theme_key: string | undefined = context.globals?.theme;
             const theme = theme_key && themes[theme_key] ? themes[theme_key] : default_theme;
 
+            const ProvidersTree = buildProvidersTree(
+                [
+                    [ThemeContrastCtx.Provider, {value : contrast}],
+                    [ThemeCtx.Provider, {value : theme}],
+                ]
+            );
+
             return <>
-                <NotoSans/>
-                <RubikDoodleShadow/>
-                <ContrastCtx.Provider value={contrast}>
-                    <ThemeCtx.Provider value={theme}>
-                        <Story/>
-                    </ThemeCtx.Provider>
-                </ContrastCtx.Provider>
+                <ThemeResources resources={theme.resources}/>
+                <ProvidersTree>
+                    <Story/>
+                </ProvidersTree>
             </>;
         },
     ],

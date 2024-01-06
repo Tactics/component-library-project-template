@@ -1,3 +1,3 @@
 import {createContext} from "react";
 import {Contrast} from "../enum/contrast";
-export const ContrastCtx = createContext<Contrast>(Contrast.LIGHT);
+export const ThemeContrastCtx = createContext<Contrast>(Contrast.LIGHT);
