@@ -1,5 +1,5 @@
 import {createContext} from "react";
-import {BaseTheme} from "../base-theme";
-import {Theme} from "../contracts/theme";
+import {ThemeI} from "../theme/contracts/theme";
+import {BaseTheme} from "../base-theme/base-theme";
 
-export const ThemeCtx = createContext<Theme>(BaseTheme);
+export const ThemeCtx = createContext<ThemeI>(BaseTheme);

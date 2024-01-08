@@ -1,5 +1,5 @@
 import {createContext} from "react";
-import {BaseTheme} from "../base-theme";
-import {ThemeColors} from "../contracts/theme";
+import {ColorsI} from "../colors/contracts/colors";
+import {BaseTheme} from "../base-theme/base-theme";
 
-export const ThemeColorCtx = createContext<ThemeColors>(BaseTheme.colors.light);
+export const ThemeColorCtx = createContext<ColorsI>(BaseTheme.colors.light);

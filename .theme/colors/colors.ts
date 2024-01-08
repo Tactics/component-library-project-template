@@ -1,5 +1,5 @@
 import {ColorsI, PartialColorsI} from "./contracts/colors";
-import {ColorVariant} from "./index";
+import {ColorVariant} from "./variant";
 
 export const Colors = ({ base, config } : {
     base: ColorsI

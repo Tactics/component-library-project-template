@@ -1,5 +1,5 @@
-import { HexColor } from "../contracts/theme";
 import { ColorVariantI } from "./contracts/color-variant";
+import {HexColor} from "./contracts/hex-color";
 
 export const ColorVariant = ({ base, config } : {
     base: ColorVariantI

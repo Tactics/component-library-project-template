@@ -1,5 +1,4 @@
 import React from 'react';
-import {ThemeColors, ThemeFonts} from "../../../.theme/contracts/theme";
 import {useThemeColorContext} from "../../../.theme/hooks/use-theme-colors-context";
 import {useThemeFontsContext} from "../../../.theme/hooks/use-theme-fonts-context";
 import {
@@ -8,10 +7,12 @@ import {
     ButtonLabelStyleProps,
     ButtonStyleProps
 } from "./button.style";
+import {ColorsI} from "../../../.theme/colors/contracts/colors";
+import {TypographyFontsI} from "../../../.theme/typography/contracts/fonts";
 
 export const Button = ({children} : {children : React.ReactNode}) => {
-    const colors : ThemeColors = useThemeColorContext();
-    const fonts : ThemeFonts = useThemeFontsContext();
+    const colors : ColorsI = useThemeColorContext();
+    const fonts : TypographyFontsI = useThemeFontsContext();
 
     const style : ButtonStyleProps = {
         background: colors.main.regular,
@@ -28,8 +29,8 @@ export const Button = ({children} : {children : React.ReactNode}) => {
 
 Button.Label = function ButtonLabel({children} : {children : React.ReactNode}) {
 
-    const colors : ThemeColors = useThemeColorContext();
-    const fonts : ThemeFonts = useThemeFontsContext();
+    const colors : ColorsI = useThemeColorContext();
+    const fonts : TypographyFontsI = useThemeFontsContext();
 
     const style : ButtonLabelStyleProps = {}
 
