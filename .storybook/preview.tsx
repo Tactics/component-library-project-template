@@ -5,11 +5,11 @@ import {Contrast} from "../.theme/enum/contrast";
 import {ThemeCtx} from "../.theme/context/theme-context";
 import {ThemeContrastCtx} from "../.theme/context/theme-contrast-context";
 import {createGlobalStyle} from "styled-components";
-import {buildProvidersTree} from "../tools/buildProvidersTree";
 import {BaseTheme} from "../.theme/base-theme/base-theme";
 import {Theme} from "../.theme/theme/theme";
 import {ThemeI} from "../.theme/theme/contracts/theme";
 import {TypographyResourcesI} from "../.theme/typography/contracts/resources";
+import {buildProvidersTree} from "../.theme/tools/buildProvidersTree";
 
 const Base = BaseTheme;
 
