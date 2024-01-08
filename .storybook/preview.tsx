@@ -1,92 +1,84 @@
 import React from 'react';
 import {Preview, StoryContext} from '@storybook/react';
 import {Globals} from '@storybook/types';
-import {CreateTheme, CreateThemeColors, CreateThemeFonts} from "../.theme/create";
-import {BaseTheme} from "../.theme/base-theme";
-import {Theme, ThemeResourcesList} from "../.theme/contracts/theme";
 import {Contrast} from "../.theme/enum/contrast";
 import {ThemeCtx} from "../.theme/context/theme-context";
 import {ThemeContrastCtx} from "../.theme/context/theme-contrast-context";
 import {createGlobalStyle} from "styled-components";
-
+import {buildProvidersTree} from "../tools/buildProvidersTree";
+import {BaseTheme} from "../.theme/base-theme/base-theme";
+import {Theme} from "../.theme/theme/theme";
+import {ThemeI} from "../.theme/theme/contracts/theme";
+import {TypographyResourcesI} from "../.theme/typography/contracts/resources";
 
 const Base = BaseTheme;
 
-const Antwerpen = CreateTheme(
-    {
-        resources:
-        [
-            "@font-face { font-family: \"Antwerpen Small\"; font-style: \"normal\"; font-weight: 500; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/AntwerpenSmallCaps-Regular.woff) format(\"woff\"); }",
-            "@font-face { font-family: \"Antwerpen Regular\"; font-style: \"normal\"; font-weight: 500; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/Antwerpen-Regular.woff) format(\"woff\"); }",
-            "@font-face { font-family: \"Antwerpen Tall\"; font-style: \"normal\"; font-weight: 500; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/AntwerpenTall-Tall.woff) format(\"woff\"); }",
-            "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"normal\"; font-weight: 300; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Light.woff) format(\"woff\"); }",
-            "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"italic\"; font-weight: 300; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Light-Italic.woff) format(\"woff\"); }",
-            "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"normal\"; font-weight: 500; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Regular.woff) format(\"woff\"); }",
-            "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"italic\"; font-weight: 500; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Regular-Italic.woff) format(\"woff\"); }",
-            "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"normal\"; font-weight: 700; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Bold.woff) format(\"woff\"); }",
-            "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"italic\"; font-weight: 700; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Bold-Italic.woff) format(\"woff\"); }",
-            "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"normal\"; font-weight: 800; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-ExtraBold.woff) format(\"woff\"); }",
-            "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"italic\"; font-weight: 800 src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-ExtraBold-Italic.woff) format(\"woff\"); }"
-        ],
-        colors:
-            CreateThemeColors(
-                {
-                    baseTheme: BaseTheme,
-                    light: {
-                        main: {
-                            regular: '#96b1c2'
-                        }
-                    },
-                    contrast: {
-                        main: {
-                            regular: '#eb34de'
-                        }
-                    },
-                }
-            ),
-        fonts:
-            CreateThemeFonts(
-                {
-                    typography: {
-                        fonts: {
-                            main: 'Antwerpen Regular'
-                        }
+const Antwerpen = Theme({
+        base: BaseTheme,
+        config: {
+            colors: {
+                light: {
+                    main: {
+                        regular: '#96b1c2'
+                    }
+                },
+                contrast: {
+                    main: {
+                        regular: '#eb34de'
                     }
                 }
-            )
+            },
+            typography: {
+                resources:
+                    [
+                        "@font-face { font-family: \"Antwerpen Small\"; font-style: \"normal\"; font-weight: 500; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/AntwerpenSmallCaps-Regular.woff) format(\"woff\"); }",
+                        "@font-face { font-family: \"Antwerpen Regular\"; font-style: \"normal\"; font-weight: 500; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/Antwerpen-Regular.woff) format(\"woff\"); }",
+                        "@font-face { font-family: \"Antwerpen Tall\"; font-style: \"normal\"; font-weight: 500; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/AntwerpenTall-Tall.woff) format(\"woff\"); }",
+                        "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"normal\"; font-weight: 300; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Light.woff) format(\"woff\"); }",
+                        "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"italic\"; font-weight: 300; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Light-Italic.woff) format(\"woff\"); }",
+                        "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"normal\"; font-weight: 500; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Regular.woff) format(\"woff\"); }",
+                        "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"italic\"; font-weight: 500; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Regular-Italic.woff) format(\"woff\"); }",
+                        "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"normal\"; font-weight: 700; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Bold.woff) format(\"woff\"); }",
+                        "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"italic\"; font-weight: 700; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Bold-Italic.woff) format(\"woff\"); }",
+                        "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"normal\"; font-weight: 800; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-ExtraBold.woff) format(\"woff\"); }",
+                        "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"italic\"; font-weight: 800 src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-ExtraBold-Italic.woff) format(\"woff\"); }"
+                    ],
+                fonts: {
+                    "font-family": {
+                        main: "Antwerpen Regular"
+                    }
+                }
+            }
+        }
     }
 );
 
-const Mechelen = CreateTheme(
-    {
-        resources: [
-            '@import url(\'https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap\');'
-        ],
-        colors:
-            CreateThemeColors(
-                {
-                    baseTheme: BaseTheme,
-                    light: {
-                        main: {
-                            regular: '#189ad3'
-                        }
-                    },
-                }
-            ),
-        fonts:
-            CreateThemeFonts(
-                {
-                    typography: {
-                        fonts: {
-                            main: 'Rubik Doodle Shadow'
-                        }
+const Mechelen = Theme({
+        base: BaseTheme,
+        config: {
+            colors: {
+                light: {
+                    main: {
+                        regular: '#189ad3'
+                    }
+                },
+            },
+            typography: {
+                resources:
+                    [
+                        "@import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');"
+                    ],
+                fonts: {
+                    "font-family": {
+                        main: "Rubik Doodle Shadow"
                     }
                 }
-            )
+            }
+        }
     }
 );
 
-const themes: Record<string, Theme> = { Base, Antwerpen, Mechelen };
+const themes: Record<string, ThemeI> = { Base, Antwerpen, Mechelen };
 const [default_theme_key, default_theme] = Object.entries(themes)[0];
 
 const contrasts: Record<string, Contrast> = {
@@ -96,26 +88,11 @@ const contrasts: Record<string, Contrast> = {
 };
 const [default_contrast_key, default_contrast] = Object.entries(contrasts)[0];
 
-const ThemeResources = createGlobalStyle<{ resources?: ThemeResourcesList; }>`
+const TypographyResources = createGlobalStyle<{ resources?: TypographyResourcesI; }>`
   ${
     props => (props.resources?.map(function (resource) { return resource}))
   }
 `
-
-const buildProvidersTree = ( componentsWithProps : any ) => {
-    const initialComponent = ({ children } : any ) => <> { children } </>
-    return componentsWithProps.reduce(
-        (AccumulatedComponents : any , [Provider, props = {}] : any ) => {
-            return ({children} : any ) => {
-                return (
-                    <AccumulatedComponents>
-                        <Provider {...props}>{children}</Provider>
-                    </AccumulatedComponents>
-                );
-            };
-        }
-    , initialComponent);
-};
 
 const preview: Preview = {
     globalTypes: {
@@ -157,7 +134,7 @@ const preview: Preview = {
             );
 
             return <>
-                <ThemeResources resources={theme.resources}/>
+                <TypographyResources resources={theme.typography.resources}/>
                 <ProvidersTree>
                     <Story/>
                 </ProvidersTree>
