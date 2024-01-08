@@ -1,54 +1,289 @@
 import {BaseThemeDefaults} from "./defaults";
 import {ThemeI} from "../theme/contracts/theme";
+import {Font} from "../typography/font/create";
 
 export const BaseTheme : ThemeI = {
     typography: {
         resources: [],
         fonts: {
             main: {
-                xs: BaseThemeDefaults["font-size"].xs + '/' + BaseThemeDefaults["line-height"].xs + ' ' + BaseThemeDefaults["font-family"].main,
-                sm: BaseThemeDefaults["font-size"].sm + '/' + BaseThemeDefaults["line-height"].sm + ' ' + BaseThemeDefaults["font-family"].main,
-                base: BaseThemeDefaults["font-size"].base + '/' + BaseThemeDefaults["line-height"].base + ' ' + BaseThemeDefaults["font-family"].main,
-                lg: BaseThemeDefaults["font-size"].lg + '/' + BaseThemeDefaults["line-height"].lg + ' ' + BaseThemeDefaults["font-family"].main,
-                xl: BaseThemeDefaults["font-size"].xl + '/' + BaseThemeDefaults["line-height"].xl + ' ' + BaseThemeDefaults["font-family"].main,
-                "2xl": BaseThemeDefaults["font-size"]["2xl"] + '/' + BaseThemeDefaults["line-height"]["2xl"] + ' ' + BaseThemeDefaults["font-family"].main,
-                "3xl": BaseThemeDefaults["font-size"]["3xl"] + '/' + BaseThemeDefaults["line-height"]["3xl"] + ' ' + BaseThemeDefaults["font-family"].main,
-                "4xl": BaseThemeDefaults["font-size"]["4xl"] + '/' + BaseThemeDefaults["line-height"]["4xl"] + ' ' + BaseThemeDefaults["font-family"].main,
-                "5xl": BaseThemeDefaults["font-size"]["5xl"] + '/' + BaseThemeDefaults["line-height"]["5xl"] + ' ' + BaseThemeDefaults["font-family"].main,
-                "6xl": BaseThemeDefaults["font-size"]["6xl"] + '/' + BaseThemeDefaults["line-height"]["6xl"] + ' ' + BaseThemeDefaults["font-family"].main,
-                "7xl": BaseThemeDefaults["font-size"]["7xl"] + '/' + BaseThemeDefaults["line-height"]["7xl"] + ' ' + BaseThemeDefaults["font-family"].main,
-                "8xl": BaseThemeDefaults["font-size"]["8xl"] + '/' + BaseThemeDefaults["line-height"]["8xl"] + ' ' + BaseThemeDefaults["font-family"].main,
-                "9xl": BaseThemeDefaults["font-size"]["9xl"] + '/' + BaseThemeDefaults["line-height"]["9xl"] + ' ' + BaseThemeDefaults["font-family"].main,
-            },
+                xs: Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].main,
+                        fontSize: BaseThemeDefaults["font-size"].xs,
+                        lineHeight: BaseThemeDefaults["line-height"].xs
+                    }
+                ),
+                sm: Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].main,
+                        fontSize: BaseThemeDefaults["font-size"].sm,
+                        lineHeight: BaseThemeDefaults["line-height"].sm
+                    }
+                ),
+                base: Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].main,
+                        fontSize: BaseThemeDefaults["font-size"].base,
+                        lineHeight: BaseThemeDefaults["line-height"].base
+                    }
+                ),
+                lg: Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].main,
+                        fontSize: BaseThemeDefaults["font-size"].lg,
+                        lineHeight: BaseThemeDefaults["line-height"].lg
+                    }
+                ),
+                xl: Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].main,
+                        fontSize: BaseThemeDefaults["font-size"].xl,
+                        lineHeight: BaseThemeDefaults["line-height"].xl
+                    }
+                ),
+                "2xl": Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].main,
+                        fontSize: BaseThemeDefaults["font-size"]["2xl"],
+                        lineHeight: BaseThemeDefaults["line-height"]["2xl"]
+                    }
+                ),
+                "3xl": Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].main,
+                        fontSize: BaseThemeDefaults["font-size"]["3xl"],
+                        lineHeight: BaseThemeDefaults["line-height"]["3xl"]
+                    }
+                ),
+                "4xl": Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].main,
+                        fontSize: BaseThemeDefaults["font-size"]["4xl"],
+                        lineHeight: BaseThemeDefaults["line-height"]["4xl"]
+                    }
+                ),
+                "5xl": Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].main,
+                        fontSize: BaseThemeDefaults["font-size"]["5xl"],
+                        lineHeight: BaseThemeDefaults["line-height"]["5xl"]
+                    }
+                ),
+                "6xl": Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].main,
+                        fontSize: BaseThemeDefaults["font-size"]["6xl"],
+                        lineHeight: BaseThemeDefaults["line-height"]["6xl"]
+                    }
+                ),
+                "7xl": Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].main,
+                        fontSize: BaseThemeDefaults["font-size"]["7xl"],
+                        lineHeight: BaseThemeDefaults["line-height"]["7xl"]
+                    }
+                ),
+                "8xl": Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].main,
+                        fontSize: BaseThemeDefaults["font-size"]["8xl"],
+                        lineHeight: BaseThemeDefaults["line-height"]["8xl"]
+                    }
+                ),
+                "9xl": Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].main,
+                        fontSize: BaseThemeDefaults["font-size"]["9xl"],
+                        lineHeight: BaseThemeDefaults["line-height"]["9xl"]
+                    }
+                ),
+             },
             secondary: {
-                xs: BaseThemeDefaults["font-size"].xs + '/' + BaseThemeDefaults["line-height"].xs + ' ' + BaseThemeDefaults["font-family"].secondary,
-                sm: BaseThemeDefaults["font-size"].sm + '/' + BaseThemeDefaults["line-height"].sm + ' ' + BaseThemeDefaults["font-family"].secondary,
-                base: BaseThemeDefaults["font-size"].base + '/' + BaseThemeDefaults["line-height"].base + ' ' + BaseThemeDefaults["font-family"].secondary,
-                lg: BaseThemeDefaults["font-size"].lg + '/' + BaseThemeDefaults["line-height"].lg + ' ' + BaseThemeDefaults["font-family"].secondary,
-                xl: BaseThemeDefaults["font-size"].xl + '/' + BaseThemeDefaults["line-height"].xl + ' ' + BaseThemeDefaults["font-family"].secondary,
-                "2xl": BaseThemeDefaults["font-size"]["2xl"] + '/' + BaseThemeDefaults["line-height"]["2xl"] + ' ' + BaseThemeDefaults["font-family"].secondary,
-                "3xl": BaseThemeDefaults["font-size"]["3xl"] + '/' + BaseThemeDefaults["line-height"]["3xl"] + ' ' + BaseThemeDefaults["font-family"].secondary,
-                "4xl": BaseThemeDefaults["font-size"]["4xl"] + '/' + BaseThemeDefaults["line-height"]["4xl"] + ' ' + BaseThemeDefaults["font-family"].secondary,
-                "5xl": BaseThemeDefaults["font-size"]["5xl"] + '/' + BaseThemeDefaults["line-height"]["5xl"] + ' ' + BaseThemeDefaults["font-family"].secondary,
-                "6xl": BaseThemeDefaults["font-size"]["6xl"] + '/' + BaseThemeDefaults["line-height"]["6xl"] + ' ' + BaseThemeDefaults["font-family"].secondary,
-                "7xl": BaseThemeDefaults["font-size"]["7xl"] + '/' + BaseThemeDefaults["line-height"]["7xl"] + ' ' + BaseThemeDefaults["font-family"].secondary,
-                "8xl": BaseThemeDefaults["font-size"]["8xl"] + '/' + BaseThemeDefaults["line-height"]["8xl"] + ' ' + BaseThemeDefaults["font-family"].secondary,
-                "9xl": BaseThemeDefaults["font-size"]["9xl"] + '/' + BaseThemeDefaults["line-height"]["9xl"] + ' ' + BaseThemeDefaults["font-family"].secondary,
+                xs: Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].secondary,
+                        fontSize: BaseThemeDefaults["font-size"].xs,
+                        lineHeight: BaseThemeDefaults["line-height"].xs
+                    }
+                ),
+                sm: Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].secondary,
+                        fontSize: BaseThemeDefaults["font-size"].sm,
+                        lineHeight: BaseThemeDefaults["line-height"].sm
+                    }
+                ),
+                base: Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].secondary,
+                        fontSize: BaseThemeDefaults["font-size"].base,
+                        lineHeight: BaseThemeDefaults["line-height"].base
+                    }
+                ),
+                lg: Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].secondary,
+                        fontSize: BaseThemeDefaults["font-size"].lg,
+                        lineHeight: BaseThemeDefaults["line-height"].lg
+                    }
+                ),
+                xl: Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].secondary,
+                        fontSize: BaseThemeDefaults["font-size"].xl,
+                        lineHeight: BaseThemeDefaults["line-height"].xl
+                    }
+                ),
+                "2xl": Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].secondary,
+                        fontSize: BaseThemeDefaults["font-size"]["2xl"],
+                        lineHeight: BaseThemeDefaults["line-height"]["2xl"]
+                    }
+                ),
+                "3xl": Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].secondary,
+                        fontSize: BaseThemeDefaults["font-size"]["3xl"],
+                        lineHeight: BaseThemeDefaults["line-height"]["3xl"]
+                    }
+                ),
+                "4xl": Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].secondary,
+                        fontSize: BaseThemeDefaults["font-size"]["4xl"],
+                        lineHeight: BaseThemeDefaults["line-height"]["4xl"]
+                    }
+                ),
+                "5xl": Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].secondary,
+                        fontSize: BaseThemeDefaults["font-size"]["5xl"],
+                        lineHeight: BaseThemeDefaults["line-height"]["5xl"]
+                    }
+                ),
+                "6xl": Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].secondary,
+                        fontSize: BaseThemeDefaults["font-size"]["6xl"],
+                        lineHeight: BaseThemeDefaults["line-height"]["6xl"]
+                    }
+                ),
+                "7xl": Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].secondary,
+                        fontSize: BaseThemeDefaults["font-size"]["7xl"],
+                        lineHeight: BaseThemeDefaults["line-height"]["7xl"]
+                    }
+                ),
+                "8xl": Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].secondary,
+                        fontSize: BaseThemeDefaults["font-size"]["8xl"],
+                        lineHeight: BaseThemeDefaults["line-height"]["8xl"]
+                    }
+                ),
+                "9xl": Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].secondary,
+                        fontSize: BaseThemeDefaults["font-size"]["9xl"],
+                        lineHeight: BaseThemeDefaults["line-height"]["9xl"]
+                    }
+                ),
             },
             tertiary: {
-                xs: BaseThemeDefaults["font-size"].xs + '/' + BaseThemeDefaults["line-height"].xs + ' ' + BaseThemeDefaults["font-family"].tertiary,
-                sm: BaseThemeDefaults["font-size"].sm + '/' + BaseThemeDefaults["line-height"].sm + ' ' + BaseThemeDefaults["font-family"].tertiary,
-                base: BaseThemeDefaults["font-size"].base + '/' + BaseThemeDefaults["line-height"].base + ' ' + BaseThemeDefaults["font-family"].tertiary,
-                lg: BaseThemeDefaults["font-size"].lg + '/' + BaseThemeDefaults["line-height"].lg + ' ' + BaseThemeDefaults["font-family"].tertiary,
-                xl: BaseThemeDefaults["font-size"].xl + '/' + BaseThemeDefaults["line-height"].xl + ' ' + BaseThemeDefaults["font-family"].tertiary,
-                "2xl": BaseThemeDefaults["font-size"]["2xl"] + '/' + BaseThemeDefaults["line-height"]["2xl"] + ' ' + BaseThemeDefaults["font-family"].tertiary,
-                "3xl": BaseThemeDefaults["font-size"]["3xl"] + '/' + BaseThemeDefaults["line-height"]["3xl"] + ' ' + BaseThemeDefaults["font-family"].tertiary,
-                "4xl": BaseThemeDefaults["font-size"]["4xl"] + '/' + BaseThemeDefaults["line-height"]["4xl"] + ' ' + BaseThemeDefaults["font-family"].tertiary,
-                "5xl": BaseThemeDefaults["font-size"]["5xl"] + '/' + BaseThemeDefaults["line-height"]["5xl"] + ' ' + BaseThemeDefaults["font-family"].tertiary,
-                "6xl": BaseThemeDefaults["font-size"]["6xl"] + '/' + BaseThemeDefaults["line-height"]["6xl"] + ' ' + BaseThemeDefaults["font-family"].tertiary,
-                "7xl": BaseThemeDefaults["font-size"]["7xl"] + '/' + BaseThemeDefaults["line-height"]["7xl"] + ' ' + BaseThemeDefaults["font-family"].tertiary,
-                "8xl": BaseThemeDefaults["font-size"]["8xl"] + '/' + BaseThemeDefaults["line-height"]["8xl"] + ' ' + BaseThemeDefaults["font-family"].tertiary,
-                "9xl": BaseThemeDefaults["font-size"]["9xl"] + '/' + BaseThemeDefaults["line-height"]["9xl"] + ' ' + BaseThemeDefaults["font-family"].tertiary,
+                xs: Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].tertiary,
+                        fontSize: BaseThemeDefaults["font-size"].xs,
+                        lineHeight: BaseThemeDefaults["line-height"].xs
+                    }
+                ),
+                sm: Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].tertiary,
+                        fontSize: BaseThemeDefaults["font-size"].sm,
+                        lineHeight: BaseThemeDefaults["line-height"].sm
+                    }
+                ),
+                base: Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].tertiary,
+                        fontSize: BaseThemeDefaults["font-size"].base,
+                        lineHeight: BaseThemeDefaults["line-height"].base
+                    }
+                ),
+                lg: Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].tertiary,
+                        fontSize: BaseThemeDefaults["font-size"].lg,
+                        lineHeight: BaseThemeDefaults["line-height"].lg
+                    }
+                ),
+                xl: Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].tertiary,
+                        fontSize: BaseThemeDefaults["font-size"].xl,
+                        lineHeight: BaseThemeDefaults["line-height"].xl
+                    }
+                ),
+                "2xl": Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].tertiary,
+                        fontSize: BaseThemeDefaults["font-size"]["2xl"],
+                        lineHeight: BaseThemeDefaults["line-height"]["2xl"]
+                    }
+                ),
+                "3xl": Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].tertiary,
+                        fontSize: BaseThemeDefaults["font-size"]["3xl"],
+                        lineHeight: BaseThemeDefaults["line-height"]["3xl"]
+                    }
+                ),
+                "4xl": Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].tertiary,
+                        fontSize: BaseThemeDefaults["font-size"]["4xl"],
+                        lineHeight: BaseThemeDefaults["line-height"]["4xl"]
+                    }
+                ),
+                "5xl": Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].tertiary,
+                        fontSize: BaseThemeDefaults["font-size"]["5xl"],
+                        lineHeight: BaseThemeDefaults["line-height"]["5xl"]
+                    }
+                ),
+                "6xl": Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].tertiary,
+                        fontSize: BaseThemeDefaults["font-size"]["6xl"],
+                        lineHeight: BaseThemeDefaults["line-height"]["6xl"]
+                    }
+                ),
+                "7xl": Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].tertiary,
+                        fontSize: BaseThemeDefaults["font-size"]["7xl"],
+                        lineHeight: BaseThemeDefaults["line-height"]["7xl"]
+                    }
+                ),
+                "8xl": Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].tertiary,
+                        fontSize: BaseThemeDefaults["font-size"]["8xl"],
+                        lineHeight: BaseThemeDefaults["line-height"]["8xl"]
+                    }
+                ),
+                "9xl": Font(
+                    {
+                        family: BaseThemeDefaults["font-family"].tertiary,
+                        fontSize: BaseThemeDefaults["font-size"]["9xl"],
+                        lineHeight: BaseThemeDefaults["line-height"]["9xl"]
+                    }
+                ),
             }
         }
     },
@@ -283,3 +518,4 @@ export const BaseTheme : ThemeI = {
         }
     }
 }
+
