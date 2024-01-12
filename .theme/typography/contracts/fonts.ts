@@ -1,8 +1,8 @@
-import {TypographyFontVariantI} from "./font-variant";
+import {TypographyFontI} from "./font";
 
 export interface TypographyFontsI {
-    main : TypographyFontVariantI
-    secondary : TypographyFontVariantI
-    tertiary: TypographyFontVariantI
+    main : TypographyFontI
+    second : TypographyFontI
+    third: TypographyFontI
 }
 

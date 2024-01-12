@@ -1,14 +1,13 @@
 import {useContext} from "react";
+import {ThemeI} from "../theme/contracts/theme";
 import {ThemeCtx} from "../context/theme-context";
 import {BaseTheme} from "../base-theme/base-theme";
-import {ThemeI} from "../theme/contracts/theme";
 
-export const useThemeContext = () : ThemeI => {
+export const useTheme = () : ThemeI => {
     try {
         return useContext(ThemeCtx);
     } catch (error) {
-        console.log(error);
         // Return the default value if an error occurs
-        return BaseTheme;
+        return BaseTheme.standard;
     }
 };

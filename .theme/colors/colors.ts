@@ -1,9 +1,9 @@
-import {ColorsI, PartialColorsI} from "./contracts/colors";
+import {ColorsConfigI, ColorsI} from "./contracts/colors";
 import {ColorVariant} from "./variant";
 
 export const Colors = ({ base, config } : {
     base: ColorsI
-    config: PartialColorsI,
+    config: ColorsConfigI,
 }) : ColorsI => {
     return {
         main: ColorVariant(
@@ -12,16 +12,16 @@ export const Colors = ({ base, config } : {
                 config: config.main ? config.main : {}
             }
         ),
-        secondary: ColorVariant(
+        second: ColorVariant(
             {
-                base: base.secondary,
-                config: config.secondary ? config.secondary : {}
+                base: base.second,
+                config: config.second ? config.second : {}
             }
         ),
-        tertiary: ColorVariant(
+        third: ColorVariant(
             {
-                base: base.tertiary,
-                config: config.tertiary ? config.tertiary : {}
+                base: base.third,
+                config: config.third ? config.third : {}
             }
         )
     }

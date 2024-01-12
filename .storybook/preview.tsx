@@ -1,76 +1,116 @@
 import React from 'react';
 import {Preview, StoryContext} from '@storybook/react';
 import {Globals} from '@storybook/types';
-import {Contrast} from "../.theme/enum/contrast";
 import {ThemeCtx} from "../.theme/context/theme-context";
-import {ThemeContrastCtx} from "../.theme/context/theme-contrast-context";
-import {createGlobalStyle} from "styled-components";
 import {BaseTheme} from "../.theme/base-theme/base-theme";
-import {Theme} from "../.theme/theme/theme";
-import {ThemeI} from "../.theme/theme/contracts/theme";
-import {TypographyResourcesI} from "../.theme/typography/contracts/resources";
 import {buildProvidersTree} from "../.theme/tools/buildProvidersTree";
+import {TypographyResources} from "../.theme/typography/resources";
+import {ThemeVariant} from "../.theme/theme/theme-variant";
+import {ThemeMode} from "../.theme/enum/theme-mode";
+import {ThemeVariantsI, ThemeVariantsKeyT} from "../.theme/theme/contracts/theme";
+import {ThemeModeCtx} from "../.theme/context/theme-mode-context";
+import {useTheme} from "../.theme/hooks/use-theme";
+
+/*
+let themes: Record<string, ThemeI> = {};
+const globbedThemes = import.meta.glob('./../themes/*.ts');
+
+for (const filePath in globbedThemes) {
+    const module = globbedThemes[filePath]();
+    console.log(module);
+    const themeNameTs = filePath.split('/').pop();
+
+    if (themeNameTs) {
+        const themeName = themeNameTs.split('.').slice(0, -1).join('.');
+
+        module.then(
+            function (value : any){
+                console.log(value);
+
+                themes[themeName] = Theme({
+                    base: BaseTheme,
+                    config: value?.default?.theme ? value?.default?.theme : {}
+                });
+            }
+        );
+    }
+}
+
+themes.base = BaseTheme;
+console.log(themes);
+ */
+
 
 const Base = BaseTheme;
 
-const Antwerpen = Theme({
+const Antwerpen = ThemeVariant({
         base: BaseTheme,
         config: {
-            colors: {
-                light: {
+            standard : {
+                alternate: [
+                    {
+                        name: "Button",
+                        style: {
+                            background: '#ffd400'
+                        }
+                    }
+                ],
+                colors: {
                     main: {
                         regular: '#96b1c2'
                     }
                 },
-                contrast: {
+                typography: {
+                    resources:
+                        [
+                            "@font-face { font-family: \"Antwerpen Small\"; font-style: \"normal\"; font-weight: 500; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/AntwerpenSmallCaps-Regular.woff) format(\"woff\"); }",
+                            "@font-face { font-family: \"Antwerpen Regular\"; font-style: \"normal\"; font-weight: 500; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/Antwerpen-Regular.woff) format(\"woff\"); }",
+                            "@font-face { font-family: \"Antwerpen Tall\"; font-style: \"normal\"; font-weight: 500; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/AntwerpenTall-Tall.woff) format(\"woff\"); }",
+                            "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"normal\"; font-weight: 300; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Light.woff) format(\"woff\"); }",
+                            "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"italic\"; font-weight: 300; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Light-Italic.woff) format(\"woff\"); }",
+                            "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"normal\"; font-weight: 500; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Regular.woff) format(\"woff\"); }",
+                            "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"italic\"; font-weight: 500; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Regular-Italic.woff) format(\"woff\"); }",
+                            "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"normal\"; font-weight: 700; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Bold.woff) format(\"woff\"); }",
+                            "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"italic\"; font-weight: 700; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Bold-Italic.woff) format(\"woff\"); }",
+                            "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"normal\"; font-weight: 800; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-ExtraBold.woff) format(\"woff\"); }",
+                            "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"italic\"; font-weight: 800 src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-ExtraBold-Italic.woff) format(\"woff\"); }"
+                        ],
+                    fonts: {
+                        fontFamily: {
+                            main: "Antwerpen Regular"
+                        }
+                    }
+                }
+            },
+            inverted : {
+                colors: {
                     main: {
                         regular: '#eb34de'
                     }
                 }
-            },
-            typography: {
-                resources:
-                    [
-                        "@font-face { font-family: \"Antwerpen Small\"; font-style: \"normal\"; font-weight: 500; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/AntwerpenSmallCaps-Regular.woff) format(\"woff\"); }",
-                        "@font-face { font-family: \"Antwerpen Regular\"; font-style: \"normal\"; font-weight: 500; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/Antwerpen-Regular.woff) format(\"woff\"); }",
-                        "@font-face { font-family: \"Antwerpen Tall\"; font-style: \"normal\"; font-weight: 500; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/AntwerpenTall-Tall.woff) format(\"woff\"); }",
-                        "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"normal\"; font-weight: 300; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Light.woff) format(\"woff\"); }",
-                        "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"italic\"; font-weight: 300; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Light-Italic.woff) format(\"woff\"); }",
-                        "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"normal\"; font-weight: 500; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Regular.woff) format(\"woff\"); }",
-                        "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"italic\"; font-weight: 500; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Regular-Italic.woff) format(\"woff\"); }",
-                        "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"normal\"; font-weight: 700; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Bold.woff) format(\"woff\"); }",
-                        "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"italic\"; font-weight: 700; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-Bold-Italic.woff) format(\"woff\"); }",
-                        "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"normal\"; font-weight: 800; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-ExtraBold.woff) format(\"woff\"); }",
-                        "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"italic\"; font-weight: 800 src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-ExtraBold-Italic.woff) format(\"woff\"); }"
-                    ],
-                fonts: {
-                    "font-family": {
-                        main: "Antwerpen Regular"
-                    }
-                }
             }
         }
     }
 );
 
-const Mechelen = Theme({
+const Mechelen = ThemeVariant({
         base: BaseTheme,
         config: {
-            colors: {
-                light: {
+            standard: {
+                colors: {
                     main: {
                         regular: '#189ad3'
                     }
                 },
-            },
-            typography: {
-                resources:
-                    [
-                        "@import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');"
-                    ],
-                fonts: {
-                    "font-family": {
-                        main: "Rubik Doodle Shadow"
+                typography: {
+                    resources:
+                        [
+                            "@import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');"
+                        ],
+                    fonts: {
+                        fontFamily: {
+                            main: "Rubik Doodle Shadow"
+                        }
                     }
                 }
             }
@@ -78,26 +118,19 @@ const Mechelen = Theme({
     }
 );
 
-const themes: Record<string, ThemeI> = { Base, Antwerpen, Mechelen };
+const themes: Record<string, ThemeVariantsI> = { Base, Antwerpen, Mechelen };
 const [default_theme_key, default_theme] = Object.entries(themes)[0];
 
-const contrasts: Record<string, Contrast> = {
-    light: Contrast.LIGHT,
-    dark: Contrast.DARK,
-    high_contrast: Contrast.HIGH_CONTRAST,
+const modes: Record<ThemeVariantsKeyT, ThemeMode> = {
+    standard: ThemeMode.STANDARD,
+    inverted: ThemeMode.INVERTED,
+    contrast: ThemeMode.CONTRAST,
 };
-const [default_contrast_key, default_contrast] = Object.entries(contrasts)[0];
-
-const TypographyResources = createGlobalStyle<{ resources?: TypographyResourcesI; }>`
-  ${
-    props => (props.resources?.map(function (resource) { return resource}))
-  }
-`
+const [default_mode_key, default_mode] = Object.entries(modes)[0];
 
 const preview: Preview = {
     globalTypes: {
         theme: {
-            description: 'Global theme for components',
             defaultValue: default_theme_key,
             toolbar: {
                 title: 'Theme',
@@ -106,13 +139,12 @@ const preview: Preview = {
                 dynamicTitle: true,
             },
         },
-        contrast: {
-            description: 'Global contrast for components',
-            defaultValue: default_contrast_key,
+        mode: {
+            defaultValue: default_mode_key,
             toolbar: {
-                title: 'Contrast',
+                title: 'Mode',
                 icon: 'circlehollow',
-                items: Object.keys(contrasts),
+                items: Object.keys(modes),
                 dynamicTitle: true,
             },
         },
@@ -120,21 +152,22 @@ const preview: Preview = {
     decorators: [
         (Story, context: StoryContext<Globals>) => {
 
-            const contrast_key: string | undefined = context.globals?.contrast;
-            const contrast = contrast_key && contrasts[contrast_key] ? contrasts[contrast_key] : default_contrast;
+            const mode_key: ThemeVariantsKeyT = context.globals?.mode || default_mode_key;
+            const mode = modes[mode_key];
 
-            const theme_key: string | undefined = context.globals?.theme;
-            const theme = theme_key && themes[theme_key] ? themes[theme_key] : default_theme;
+            const theme_key: string = context.globals?.theme || default_theme_key;
+            const theme = themes[theme_key];
+
+            const theme_mode = theme[mode_key];
 
             const ProvidersTree = buildProvidersTree(
                 [
-                    [ThemeContrastCtx.Provider, {value : contrast}],
-                    [ThemeCtx.Provider, {value : theme}],
+                    [ThemeCtx.Provider, {value : theme_mode}],
                 ]
             );
 
             return <>
-                <TypographyResources resources={theme.typography.resources}/>
+                <TypographyResources resources={theme_mode.typography.resources}/>
                 <ProvidersTree>
                     <Story/>
                 </ProvidersTree>

@@ -18,3 +18,7 @@ export default {
 export const Default = {
     args: {},
 };
+
+export const Default2 = {
+    args: {},
+};

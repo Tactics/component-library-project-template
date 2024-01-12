@@ -1,14 +1,22 @@
 import {TypographyFonts} from "./fonts/create";
-import {PartialTypographyI, TypographyI} from "./contracts/typography";
+import {TypographyConfigI, TypographyI} from "./contracts/typography";
+import {TypographyResources} from "./resources/create";
 
-export const Typography = ({config} : {
-    config: PartialTypographyI,
+export const Typography = ({base , config} : {
+    base: TypographyI,
+    config: TypographyConfigI,
 }) : TypographyI => {
 
     return {
-        resources: config.resources ? config.resources : [],
+        resources: TypographyResources(
+            {
+                base: base.resources,
+                config: config?.resources
+            }
+        ),
         fonts: TypographyFonts(
             {
+                base: base.fonts,
                 config: config?.fonts ? config.fonts : {}
             }
         )

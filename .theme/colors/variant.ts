@@ -1,26 +1,10 @@
 import { ColorVariantI } from "./contracts/color-variant";
-import {HexColor} from "./contracts/hex-color";
+import {orDefault} from "../tools/orDefault";
 
 export const ColorVariant = ({ base, config } : {
     base: ColorVariantI
     config: Partial<ColorVariantI>,
 }) : ColorVariantI => {
-
-    function orDefault(json: any, standard: HexColor, keys: string[]): any {
-        let currentValue = json;
-
-        for (const key of keys) {
-            // Check if the current value is null or undefined, and fallback to the standard value
-            currentValue = currentValue?.[key] ?? standard;
-
-            // If the current value is null or undefined, break the loop
-            if (currentValue === null || currentValue === undefined) {
-                break;
-            }
-        }
-
-        return currentValue;
-    }
 
     const regular = orDefault(
         config,

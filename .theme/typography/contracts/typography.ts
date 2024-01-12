@@ -1,4 +1,4 @@
-import {TypographyResourcesI} from "./resources";
+import {TypographyResourcesConfigI, TypographyResourcesI} from "./resources";
 import {TypographyFontsI} from "./fonts";
 
 export interface TypographyI {
@@ -6,27 +6,27 @@ export interface TypographyI {
     fonts: TypographyFontsI
 }
 
-export interface PartialTypographyI {
-    resources?: TypographyResourcesI,
-    fonts?: PartialTypographyConfigFontsI
+export interface TypographyConfigI {
+    resources?: TypographyResourcesConfigI,
+    fonts?: TypographyFontsConfigI
 }
 
-export interface PartialTypographyConfigFontsI {
-    'font-family'?: PartialTypographyConfigFontFamilyI,
-    'line-height'?: PartialTypographyConfigLineHeightI
-    'font-size'?: PartialTypographyConfigFontSizeI
+export interface TypographyFontsConfigI {
+    fontFamily?: TypographyFontFamilyConfigI,
+    lineHeight?: TypographyLineHeightConfigI
+    fontSize?: TypographyFontSizeConfigI
 }
 
-export interface PartialTypographyConfigFontFamilyI {
+export interface TypographyFontFamilyConfigI {
     main?: string,
-    secondary?: string,
-    tertiary?: string
+    second?: string,
+    third?: string
 }
 
-export interface PartialTypographyConfigLineHeightI {
+export interface TypographyLineHeightConfigI {
     xs?: string|number,
     sm?: string|number,
-    base?: string|number,
+    standard?: string|number,
     lg?: string|number,
     xl?: string|number,
     '2xl'?: string|number,
@@ -39,10 +39,10 @@ export interface PartialTypographyConfigLineHeightI {
     '9xl'?: string|number,
 }
 
-export interface PartialTypographyConfigFontSizeI {
+export interface TypographyFontSizeConfigI {
     xs?: string,
     sm?: string,
-    base?: string,
+    standard?: string,
     lg?: string,
     xl?: string,
     '2xl'?: string,

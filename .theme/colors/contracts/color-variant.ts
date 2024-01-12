@@ -12,7 +12,7 @@ export interface ColorVariantI {
     tint_9 : HexColor
 }
 
-export interface PartialColorVariantI {
+export interface ColorVariantConfigI {
     tint_1? : HexColor
     tint_2? : HexColor
     tint_3? : HexColor

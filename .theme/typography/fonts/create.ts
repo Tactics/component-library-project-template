@@ -1,288 +1,407 @@
 import {TypographyFontsI} from "../contracts/fonts";
 import {BaseThemeDefaults} from "../../base-theme/defaults";
-import {TypographyConfigFontsI} from "../contracts/typography";
 import {Font} from "../font/create";
+import {TypographyFontsConfigI} from "../contracts/typography";
 
-export const TypographyFonts = ({ config } : {
-    config: Partial<TypographyConfigFontsI>,
+export const TypographyFonts = ({ base, config } : {
+    base: TypographyFontsI,
+    config: TypographyFontsConfigI,
 }) : TypographyFontsI => {
+
     return {
         main: {
             xs: Font(
                 {
-                    family: config?.["font-family"]?.main ? config["font-family"].main : BaseThemeDefaults["font-family"].main,
-                    fontSize: config["font-size"]?.xs ? config["font-size"]?.xs : BaseThemeDefaults["font-size"].xs,
-                    lineHeight: config["font-size"]?.xs ? config["font-size"]?.xs : BaseThemeDefaults["line-height"].xs,
+                    base: base.main.xs,
+                    config: {
+                        family: config?.fontFamily?.main ? config.fontFamily.main : BaseThemeDefaults.fontFamily.main,
+                        fontSize: config.fontSize?.xs ? config.fontSize?.xs : BaseThemeDefaults.fontSize.xs,
+                        lineHeight: config.fontSize?.xs ? config.fontSize?.xs : BaseThemeDefaults.lineHeight.xs
+                    }
                 }
             ),
             sm: Font(
                 {
-                    family: config?.["font-family"]?.main ? config["font-family"].main : BaseThemeDefaults["font-family"].main,
-                    fontSize: config["font-size"]?.sm ? config["font-size"]?.sm : BaseThemeDefaults["font-size"].sm,
-                    lineHeight: config["font-size"]?.sm ? config["font-size"]?.sm : BaseThemeDefaults["line-height"].sm,
+                    base: base.main.xs,
+                    config: {
+                        family: config?.fontFamily?.main ? config.fontFamily.main : BaseThemeDefaults.fontFamily.main,
+                        fontSize: config.fontSize?.sm ? config.fontSize?.sm : BaseThemeDefaults.fontSize.sm,
+                        lineHeight: config.fontSize?.sm ? config.fontSize?.sm : BaseThemeDefaults.lineHeight.sm
+                    }
                 }
             ),
-            base: Font(
+            standard: Font(
                 {
-                    family: config?.["font-family"]?.main ? config["font-family"].main : BaseThemeDefaults["font-family"].main,
-                    fontSize: config["font-size"]?.base ? config["font-size"]?.base : BaseThemeDefaults["font-size"].base,
-                    lineHeight: config["font-size"]?.base ? config["font-size"]?.base : BaseThemeDefaults["line-height"].base,
+                    base: base.main.standard,
+                    config: {
+                        family: config?.fontFamily?.main ? config.fontFamily.main : BaseThemeDefaults.fontFamily.main,
+                        fontSize: config.fontSize?.standard ? config.fontSize?.standard : BaseThemeDefaults.fontSize.standard,
+                        lineHeight: config.fontSize?.standard ? config.fontSize?.standard : BaseThemeDefaults.lineHeight.standard,
+                    }
                 }
             ),
             lg: Font(
                 {
-                    family: config?.["font-family"]?.main ? config["font-family"].main : BaseThemeDefaults["font-family"].main,
-                    fontSize: config["font-size"]?.lg ? config["font-size"]?.lg : BaseThemeDefaults["font-size"].lg,
-                    lineHeight: config["font-size"]?.lg ? config["font-size"]?.lg : BaseThemeDefaults["line-height"].lg,
+                    base: base.main.lg,
+                    config: {
+                        family: config?.fontFamily?.main ? config.fontFamily.main : BaseThemeDefaults.fontFamily.main,
+                        fontSize: config.fontSize?.lg ? config.fontSize?.lg : BaseThemeDefaults.fontSize.lg,
+                        lineHeight: config.fontSize?.lg ? config.fontSize?.lg : BaseThemeDefaults.lineHeight.lg,
+                    }
                 }
             ),
             xl: Font(
                 {
-                    family: config?.["font-family"]?.main ? config["font-family"].main : BaseThemeDefaults["font-family"].main,
-                    fontSize: config["font-size"]?.xl ? config["font-size"]?.xl : BaseThemeDefaults["font-size"].xl,
-                    lineHeight: config["font-size"]?.xl ? config["font-size"]?.xl : BaseThemeDefaults["line-height"].xl,
+                    base: base.main.xl,
+                    config: {
+                        family: config?.fontFamily?.main ? config.fontFamily.main : BaseThemeDefaults.fontFamily.main,
+                        fontSize: config.fontSize?.xl ? config.fontSize?.xl : BaseThemeDefaults.fontSize.xl,
+                        lineHeight: config.fontSize?.xl ? config.fontSize?.xl : BaseThemeDefaults.lineHeight.xl
+                    }
                 }
             ),
             "2xl": Font(
                 {
-                    family: config?.["font-family"]?.main ? config["font-family"].main : BaseThemeDefaults["font-family"].main,
-                    fontSize: config["font-size"]?.["2xl"] ? config["font-size"]?.["2xl"] : BaseThemeDefaults["font-size"]["2xl"],
-                    lineHeight: config["font-size"]?.["2xl"] ? config["font-size"]?.["2xl"] : BaseThemeDefaults["line-height"]["2xl"],
+                    base: base.main["2xl"],
+                    config: {
+                        family: config?.fontFamily?.main ? config.fontFamily.main : BaseThemeDefaults.fontFamily.main,
+                        fontSize: config.fontSize?.["2xl"] ? config.fontSize?.["2xl"] : BaseThemeDefaults.fontSize["2xl"],
+                        lineHeight: config.fontSize?.["2xl"] ? config.fontSize?.["2xl"] : BaseThemeDefaults.lineHeight["2xl"]
+                    }
                 }
             ),
             "3xl": Font(
                 {
-                    family: config?.["font-family"]?.main ? config["font-family"].main : BaseThemeDefaults["font-family"].main,
-                    fontSize: config["font-size"]?.["3xl"] ? config["font-size"]?.["3xl"] : BaseThemeDefaults["font-size"]["3xl"],
-                    lineHeight: config["font-size"]?.["3xl"] ? config["font-size"]?.["3xl"] : BaseThemeDefaults["line-height"]["3xl"],
+                    base: base.main["3xl"],
+                    config: {
+                        family: config?.fontFamily?.main ? config.fontFamily.main : BaseThemeDefaults.fontFamily.main,
+                        fontSize: config.fontSize?.["3xl"] ? config.fontSize?.["3xl"] : BaseThemeDefaults.fontSize["3xl"],
+                        lineHeight: config.fontSize?.["3xl"] ? config.fontSize?.["3xl"] : BaseThemeDefaults.lineHeight["3xl"]
+                    }
                 }
             ),
             "4xl": Font(
                 {
-                    family: config?.["font-family"]?.main ? config["font-family"].main : BaseThemeDefaults["font-family"].main,
-                    fontSize: config["font-size"]?.["4xl"] ? config["font-size"]?.["4xl"] : BaseThemeDefaults["font-size"]["4xl"],
-                    lineHeight: config["font-size"]?.["4xl"] ? config["font-size"]?.["4xl"] : BaseThemeDefaults["line-height"]["4xl"],
+                    base: base.main["4xl"],
+                    config: {
+                        family: config?.fontFamily?.main ? config.fontFamily.main : BaseThemeDefaults.fontFamily.main,
+                        fontSize: config.fontSize?.["4xl"] ? config.fontSize?.["4xl"] : BaseThemeDefaults.fontSize["4xl"],
+                        lineHeight: config.fontSize?.["4xl"] ? config.fontSize?.["4xl"] : BaseThemeDefaults.lineHeight["4xl"]
+                    }
                 }
             ),
             "5xl": Font(
                 {
-                    family: config?.["font-family"]?.main ? config["font-family"].main : BaseThemeDefaults["font-family"].main,
-                    fontSize: config["font-size"]?.["5xl"] ? config["font-size"]?.["5xl"] : BaseThemeDefaults["font-size"]["5xl"],
-                    lineHeight: config["font-size"]?.["5xl"] ? config["font-size"]?.["5xl"] : BaseThemeDefaults["line-height"]["5xl"],
+                    base: base.main["5xl"],
+                    config: {
+                        family: config?.fontFamily?.main ? config.fontFamily.main : BaseThemeDefaults.fontFamily.main,
+                        fontSize: config.fontSize?.["5xl"] ? config.fontSize?.["5xl"] : BaseThemeDefaults.fontSize["5xl"],
+                        lineHeight: config.fontSize?.["5xl"] ? config.fontSize?.["5xl"] : BaseThemeDefaults.lineHeight["5xl"]
+                    }
                 }
             ),
             "6xl": Font(
                 {
-                    family: config?.["font-family"]?.main ? config["font-family"].main : BaseThemeDefaults["font-family"].main,
-                    fontSize: config["font-size"]?.["6xl"] ? config["font-size"]?.["6xl"] : BaseThemeDefaults["font-size"]["6xl"],
-                    lineHeight: config["font-size"]?.["6xl"] ? config["font-size"]?.["6xl"] : BaseThemeDefaults["line-height"]["6xl"],
+                    base: base.main["6xl"],
+                    config: {
+                        family: config?.fontFamily?.main ? config.fontFamily.main : BaseThemeDefaults.fontFamily.main,
+                        fontSize: config.fontSize?.["6xl"] ? config.fontSize?.["6xl"] : BaseThemeDefaults.fontSize["6xl"],
+                        lineHeight: config.fontSize?.["6xl"] ? config.fontSize?.["6xl"] : BaseThemeDefaults.lineHeight["6xl"]
+                    }
                 }
             ),
             "7xl": Font(
                 {
-                    family: config?.["font-family"]?.main ? config["font-family"].main : BaseThemeDefaults["font-family"].main,
-                    fontSize: config["font-size"]?.["7xl"] ? config["font-size"]?.["7xl"] : BaseThemeDefaults["font-size"]["7xl"],
-                    lineHeight: config["font-size"]?.["7xl"] ? config["font-size"]?.["7xl"] : BaseThemeDefaults["line-height"]["7xl"],
+                    base: base.main["7xl"],
+                    config: {
+                        family: config?.fontFamily?.main ? config.fontFamily.main : BaseThemeDefaults.fontFamily.main,
+                        fontSize: config.fontSize?.["7xl"] ? config.fontSize?.["7xl"] : BaseThemeDefaults.fontSize["7xl"],
+                        lineHeight: config.fontSize?.["7xl"] ? config.fontSize?.["7xl"] : BaseThemeDefaults.lineHeight["7xl"]
+                    }
                 }
             ),
             "8xl": Font(
                 {
-                    family: config?.["font-family"]?.main ? config["font-family"].main : BaseThemeDefaults["font-family"].main,
-                    fontSize: config["font-size"]?.["8xl"] ? config["font-size"]?.["8xl"] : BaseThemeDefaults["font-size"]["8xl"],
-                    lineHeight: config["font-size"]?.["8xl"] ? config["font-size"]?.["8xl"] : BaseThemeDefaults["line-height"]["8xl"],
+                    base: base.main["8xl"],
+                    config: {
+                        family: config?.fontFamily?.main ? config.fontFamily.main : BaseThemeDefaults.fontFamily.main,
+                        fontSize: config.fontSize?.["8xl"] ? config.fontSize?.["8xl"] : BaseThemeDefaults.fontSize["8xl"],
+                        lineHeight: config.fontSize?.["8xl"] ? config.fontSize?.["8xl"] : BaseThemeDefaults.lineHeight["8xl"]
+                    }
                 }
             ),
             "9xl": Font(
                 {
-                    family: config?.["font-family"]?.main ? config["font-family"].main : BaseThemeDefaults["font-family"].main,
-                    fontSize: config["font-size"]?.["9xl"] ? config["font-size"]?.["9xl"] : BaseThemeDefaults["font-size"]["9xl"],
-                    lineHeight: config["font-size"]?.["9xl"] ? config["font-size"]?.["9xl"] : BaseThemeDefaults["line-height"]["9xl"],
+                    base: base.main["9xl"],
+                    config: {
+                        family: config?.fontFamily?.main ? config.fontFamily.main : BaseThemeDefaults.fontFamily.main,
+                        fontSize: config.fontSize?.["9xl"] ? config.fontSize?.["9xl"] : BaseThemeDefaults.fontSize["9xl"],
+                        lineHeight: config.fontSize?.["9xl"] ? config.fontSize?.["9xl"] : BaseThemeDefaults.lineHeight["9xl"]
+                    }
                 }
             ),
         },
-        secondary: {
+        second: {
             xs: Font(
                 {
-                    family: config?.["font-family"]?.secondary ? config["font-family"].secondary : BaseThemeDefaults["font-family"].secondary,
-                    fontSize: config["font-size"]?.xs ? config["font-size"]?.xs : BaseThemeDefaults["font-size"].xs,
-                    lineHeight: config["font-size"]?.xs ? config["font-size"]?.xs : BaseThemeDefaults["line-height"].xs,
+                    base: base.second.xs,
+                    config: {
+                        family: config?.fontFamily?.second ? config.fontFamily.second : BaseThemeDefaults.fontFamily.second,
+                        fontSize: config.fontSize?.xs ? config.fontSize?.xs : BaseThemeDefaults.fontSize.xs,
+                        lineHeight: config.fontSize?.xs ? config.fontSize?.xs : BaseThemeDefaults.lineHeight.xs,
+                    }
                 }
             ),
             sm: Font(
                 {
-                    family: config?.["font-family"]?.secondary ? config["font-family"].secondary : BaseThemeDefaults["font-family"].secondary,
-                    fontSize: config["font-size"]?.sm ? config["font-size"]?.sm : BaseThemeDefaults["font-size"].sm,
-                    lineHeight: config["font-size"]?.sm ? config["font-size"]?.sm : BaseThemeDefaults["line-height"].sm,
+                    base: base.second.sm,
+                    config: {
+                        family: config?.fontFamily?.second ? config.fontFamily.second : BaseThemeDefaults.fontFamily.second,
+                        fontSize: config.fontSize?.sm ? config.fontSize?.sm : BaseThemeDefaults.fontSize.sm,
+                        lineHeight: config.fontSize?.sm ? config.fontSize?.sm : BaseThemeDefaults.lineHeight.sm
+                    }
                 }
             ),
-            base: Font(
+            standard: Font(
                 {
-                    family: config?.["font-family"]?.secondary ? config["font-family"].secondary : BaseThemeDefaults["font-family"].secondary,
-                    fontSize: config["font-size"]?.base ? config["font-size"]?.base : BaseThemeDefaults["font-size"].base,
-                    lineHeight: config["font-size"]?.base ? config["font-size"]?.base : BaseThemeDefaults["line-height"].base,
+                    base: base.second.standard,
+                    config: {
+                        family: config?.fontFamily?.second ? config.fontFamily.second : BaseThemeDefaults.fontFamily.second,
+                        fontSize: config.fontSize?.standard ? config.fontSize?.standard : BaseThemeDefaults.fontSize.standard,
+                        lineHeight: config.fontSize?.standard ? config.fontSize?.standard : BaseThemeDefaults.lineHeight.standard
+                    }
                 }
             ),
             lg: Font(
                 {
-                    family: config?.["font-family"]?.secondary ? config["font-family"].secondary : BaseThemeDefaults["font-family"].secondary,
-                    fontSize: config["font-size"]?.lg ? config["font-size"]?.lg : BaseThemeDefaults["font-size"].lg,
-                    lineHeight: config["font-size"]?.lg ? config["font-size"]?.lg : BaseThemeDefaults["line-height"].lg,
+                    base: base.second.lg,
+                    config: {
+                        family: config?.fontFamily?.second ? config.fontFamily.second : BaseThemeDefaults.fontFamily.second,
+                        fontSize: config.fontSize?.lg ? config.fontSize?.lg : BaseThemeDefaults.fontSize.lg,
+                        lineHeight: config.fontSize?.lg ? config.fontSize?.lg : BaseThemeDefaults.lineHeight.lg
+                    }
                 }
             ),
             xl: Font(
                 {
-                    family: config?.["font-family"]?.secondary ? config["font-family"].secondary : BaseThemeDefaults["font-family"].secondary,
-                    fontSize: config["font-size"]?.xl ? config["font-size"]?.xl : BaseThemeDefaults["font-size"].xl,
-                    lineHeight: config["font-size"]?.xl ? config["font-size"]?.xl : BaseThemeDefaults["line-height"].xl,
+                    base: base.second.xl,
+                    config: {
+                        family: config?.fontFamily?.second ? config.fontFamily.second : BaseThemeDefaults.fontFamily.second,
+                        fontSize: config.fontSize?.xl ? config.fontSize?.xl : BaseThemeDefaults.fontSize.xl,
+                        lineHeight: config.fontSize?.xl ? config.fontSize?.xl : BaseThemeDefaults.lineHeight.xl
+                    }
                 }
             ),
             "2xl": Font(
                 {
-                    family: config?.["font-family"]?.secondary ? config["font-family"].secondary : BaseThemeDefaults["font-family"].secondary,
-                    fontSize: config["font-size"]?.["2xl"] ? config["font-size"]?.["2xl"] : BaseThemeDefaults["font-size"]["2xl"],
-                    lineHeight: config["font-size"]?.["2xl"] ? config["font-size"]?.["2xl"] : BaseThemeDefaults["line-height"]["2xl"],
+                    base: base.second["2xl"],
+                    config: {
+                        family: config?.fontFamily?.second ? config.fontFamily.second : BaseThemeDefaults.fontFamily.second,
+                        fontSize: config.fontSize?.["2xl"] ? config.fontSize?.["2xl"] : BaseThemeDefaults.fontSize["2xl"],
+                        lineHeight: config.fontSize?.["2xl"] ? config.fontSize?.["2xl"] : BaseThemeDefaults.lineHeight["2xl"]
+                    }
                 }
             ),
             "3xl": Font(
                 {
-                    family: config?.["font-family"]?.secondary ? config["font-family"].secondary : BaseThemeDefaults["font-family"].secondary,
-                    fontSize: config["font-size"]?.["3xl"] ? config["font-size"]?.["3xl"] : BaseThemeDefaults["font-size"]["3xl"],
-                    lineHeight: config["font-size"]?.["3xl"] ? config["font-size"]?.["3xl"] : BaseThemeDefaults["line-height"]["3xl"],
+                    base: base.second["3xl"],
+                    config: {
+                        family: config?.fontFamily?.second ? config.fontFamily.second : BaseThemeDefaults.fontFamily.second,
+                        fontSize: config.fontSize?.["3xl"] ? config.fontSize?.["3xl"] : BaseThemeDefaults.fontSize["3xl"],
+                        lineHeight: config.fontSize?.["3xl"] ? config.fontSize?.["3xl"] : BaseThemeDefaults.lineHeight["3xl"]
+                    }
                 }
             ),
             "4xl": Font(
                 {
-                    family: config?.["font-family"]?.secondary ? config["font-family"].secondary : BaseThemeDefaults["font-family"].secondary,
-                    fontSize: config["font-size"]?.["4xl"] ? config["font-size"]?.["4xl"] : BaseThemeDefaults["font-size"]["4xl"],
-                    lineHeight: config["font-size"]?.["4xl"] ? config["font-size"]?.["4xl"] : BaseThemeDefaults["line-height"]["4xl"],
+                    base: base.second["4xl"],
+                    config: {
+                        family: config?.fontFamily?.second ? config.fontFamily.second : BaseThemeDefaults.fontFamily.second,
+                        fontSize: config.fontSize?.["4xl"] ? config.fontSize?.["4xl"] : BaseThemeDefaults.fontSize["4xl"],
+                        lineHeight: config.fontSize?.["4xl"] ? config.fontSize?.["4xl"] : BaseThemeDefaults.lineHeight["4xl"]
+                    }
                 }
             ),
             "5xl": Font(
                 {
-                    family: config?.["font-family"]?.secondary ? config["font-family"].secondary : BaseThemeDefaults["font-family"].secondary,
-                    fontSize: config["font-size"]?.["5xl"] ? config["font-size"]?.["5xl"] : BaseThemeDefaults["font-size"]["5xl"],
-                    lineHeight: config["font-size"]?.["5xl"] ? config["font-size"]?.["5xl"] : BaseThemeDefaults["line-height"]["5xl"],
+                    base: base.second["5xl"],
+                    config: {
+                        family: config?.fontFamily?.second ? config.fontFamily.second : BaseThemeDefaults.fontFamily.second,
+                        fontSize: config.fontSize?.["5xl"] ? config.fontSize?.["5xl"] : BaseThemeDefaults.fontSize["5xl"],
+                        lineHeight: config.fontSize?.["5xl"] ? config.fontSize?.["5xl"] : BaseThemeDefaults.lineHeight["5xl"]
+                    }
                 }
             ),
             "6xl": Font(
                 {
-                    family: config?.["font-family"]?.secondary ? config["font-family"].secondary : BaseThemeDefaults["font-family"].secondary,
-                    fontSize: config["font-size"]?.["6xl"] ? config["font-size"]?.["6xl"] : BaseThemeDefaults["font-size"]["6xl"],
-                    lineHeight: config["font-size"]?.["6xl"] ? config["font-size"]?.["6xl"] : BaseThemeDefaults["line-height"]["6xl"],
+                    base: base.second["6xl"],
+                    config: {
+                        family: config?.fontFamily?.second ? config.fontFamily.second : BaseThemeDefaults.fontFamily.second,
+                        fontSize: config.fontSize?.["6xl"] ? config.fontSize?.["6xl"] : BaseThemeDefaults.fontSize["6xl"],
+                        lineHeight: config.fontSize?.["6xl"] ? config.fontSize?.["6xl"] : BaseThemeDefaults.lineHeight["6xl"]
+                    }
                 }
             ),
             "7xl": Font(
                 {
-                    family: config?.["font-family"]?.secondary ? config["font-family"].secondary : BaseThemeDefaults["font-family"].secondary,
-                    fontSize: config["font-size"]?.["7xl"] ? config["font-size"]?.["7xl"] : BaseThemeDefaults["font-size"]["7xl"],
-                    lineHeight: config["font-size"]?.["7xl"] ? config["font-size"]?.["7xl"] : BaseThemeDefaults["line-height"]["7xl"],
+                    base: base.second["7xl"],
+                    config: {
+                        family: config?.fontFamily?.second ? config.fontFamily.second : BaseThemeDefaults.fontFamily.second,
+                        fontSize: config.fontSize?.["7xl"] ? config.fontSize?.["7xl"] : BaseThemeDefaults.fontSize["7xl"],
+                        lineHeight: config.fontSize?.["7xl"] ? config.fontSize?.["7xl"] : BaseThemeDefaults.lineHeight["7xl"]
+                    }
                 }
             ),
             "8xl": Font(
                 {
-                    family: config?.["font-family"]?.secondary ? config["font-family"].secondary : BaseThemeDefaults["font-family"].secondary,
-                    fontSize: config["font-size"]?.["8xl"] ? config["font-size"]?.["8xl"] : BaseThemeDefaults["font-size"]["8xl"],
-                    lineHeight: config["font-size"]?.["8xl"] ? config["font-size"]?.["8xl"] : BaseThemeDefaults["line-height"]["8xl"],
+                    base: base.second["8xl"],
+                    config: {
+                        family: config?.fontFamily?.second ? config.fontFamily.second : BaseThemeDefaults.fontFamily.second,
+                        fontSize: config.fontSize?.["8xl"] ? config.fontSize?.["8xl"] : BaseThemeDefaults.fontSize["8xl"],
+                        lineHeight: config.fontSize?.["8xl"] ? config.fontSize?.["8xl"] : BaseThemeDefaults.lineHeight["8xl"]
+                    }
                 }
             ),
             "9xl": Font(
                 {
-                    family: config?.["font-family"]?.secondary ? config["font-family"].secondary : BaseThemeDefaults["font-family"].secondary,
-                    fontSize: config["font-size"]?.["9xl"] ? config["font-size"]?.["9xl"] : BaseThemeDefaults["font-size"]["9xl"],
-                    lineHeight: config["font-size"]?.["9xl"] ? config["font-size"]?.["9xl"] : BaseThemeDefaults["line-height"]["9xl"],
+                    base: base.second["9xl"],
+                    config: {
+                        family: config?.fontFamily?.second ? config.fontFamily.second : BaseThemeDefaults.fontFamily.second,
+                        fontSize: config.fontSize?.["9xl"] ? config.fontSize?.["9xl"] : BaseThemeDefaults.fontSize["9xl"],
+                        lineHeight: config.fontSize?.["9xl"] ? config.fontSize?.["9xl"] : BaseThemeDefaults.lineHeight["9xl"]
+                    }
                 }
             ),
         },
-        tertiary: {
+        third: {
             xs: Font(
                 {
-                    family: config?.["font-family"]?.tertiary ? config["font-family"].tertiary : BaseThemeDefaults["font-family"].tertiary,
-                    fontSize: config["font-size"]?.xs ? config["font-size"]?.xs : BaseThemeDefaults["font-size"].xs,
-                    lineHeight: config["font-size"]?.xs ? config["font-size"]?.xs : BaseThemeDefaults["line-height"].xs,
+                    base: base.third.xs,
+                    config: {
+                        family: config?.fontFamily?.third ? config.fontFamily.third : BaseThemeDefaults.fontFamily.third,
+                        fontSize: config.fontSize?.xs ? config.fontSize?.xs : BaseThemeDefaults.fontSize.xs,
+                        lineHeight: config.fontSize?.xs ? config.fontSize?.xs : BaseThemeDefaults.lineHeight.xs
+                    }
                 }
             ),
             sm: Font(
                 {
-                    family: config?.["font-family"]?.tertiary ? config["font-family"].tertiary : BaseThemeDefaults["font-family"].tertiary,
-                    fontSize: config["font-size"]?.sm ? config["font-size"]?.sm : BaseThemeDefaults["font-size"].sm,
-                    lineHeight: config["font-size"]?.sm ? config["font-size"]?.sm : BaseThemeDefaults["line-height"].sm,
+                    base: base.third.sm,
+                    config: {
+                        family: config?.fontFamily?.third ? config.fontFamily.third : BaseThemeDefaults.fontFamily.third,
+                        fontSize: config.fontSize?.sm ? config.fontSize?.sm : BaseThemeDefaults.fontSize.sm,
+                        lineHeight: config.fontSize?.sm ? config.fontSize?.sm : BaseThemeDefaults.lineHeight.sm
+                    }
                 }
             ),
-            base: Font(
+            standard: Font(
                 {
-                    family: config?.["font-family"]?.tertiary ? config["font-family"].tertiary : BaseThemeDefaults["font-family"].tertiary,
-                    fontSize: config["font-size"]?.base ? config["font-size"]?.base : BaseThemeDefaults["font-size"].base,
-                    lineHeight: config["font-size"]?.base ? config["font-size"]?.base : BaseThemeDefaults["line-height"].base,
+                    base: base.third.standard,
+                    config: {
+                        family: config?.fontFamily?.third ? config.fontFamily.third : BaseThemeDefaults.fontFamily.third,
+                        fontSize: config.fontSize?.standard ? config.fontSize?.standard : BaseThemeDefaults.fontSize.standard,
+                        lineHeight: config.fontSize?.standard ? config.fontSize?.standard : BaseThemeDefaults.lineHeight.standard
+                    }
                 }
             ),
             lg: Font(
                 {
-                    family: config?.["font-family"]?.tertiary ? config["font-family"].tertiary : BaseThemeDefaults["font-family"].tertiary,
-                    fontSize: config["font-size"]?.lg ? config["font-size"]?.lg : BaseThemeDefaults["font-size"].lg,
-                    lineHeight: config["font-size"]?.lg ? config["font-size"]?.lg : BaseThemeDefaults["line-height"].lg,
+                    base: base.third.lg,
+                    config: {
+                        family: config?.fontFamily?.third ? config.fontFamily.third : BaseThemeDefaults.fontFamily.third,
+                        fontSize: config.fontSize?.lg ? config.fontSize?.lg : BaseThemeDefaults.fontSize.lg,
+                        lineHeight: config.fontSize?.lg ? config.fontSize?.lg : BaseThemeDefaults.lineHeight.lg
+                    }
                 }
             ),
             xl: Font(
                 {
-                    family: config?.["font-family"]?.tertiary ? config["font-family"].tertiary : BaseThemeDefaults["font-family"].tertiary,
-                    fontSize: config["font-size"]?.xl ? config["font-size"]?.xl : BaseThemeDefaults["font-size"].lg,
-                    lineHeight: config["font-size"]?.xl ? config["font-size"]?.xl : BaseThemeDefaults["line-height"].lg,
+                    base: base.third.xl,
+                    config: {
+                        family: config?.fontFamily?.third ? config.fontFamily.third : BaseThemeDefaults.fontFamily.third,
+                        fontSize: config.fontSize?.xl ? config.fontSize?.xl : BaseThemeDefaults.fontSize.xl,
+                        lineHeight: config.fontSize?.xl ? config.fontSize?.xl : BaseThemeDefaults.lineHeight.xl
+                    }
                 }
             ),
             "2xl": Font(
                 {
-                    family: config?.["font-family"]?.tertiary ? config["font-family"].tertiary : BaseThemeDefaults["font-family"].tertiary,
-                    fontSize: config["font-size"]?.["2xl"] ? config["font-size"]?.["2xl"] : BaseThemeDefaults["font-size"]["2xl"],
-                    lineHeight: config["font-size"]?.["2xl"] ? config["font-size"]?.["2xl"] : BaseThemeDefaults["line-height"]["2xl"],
+                    base: base.third["2xl"],
+                    config: {
+                        family: config?.fontFamily?.third ? config.fontFamily.third : BaseThemeDefaults.fontFamily.third,
+                        fontSize: config.fontSize?.["2xl"] ? config.fontSize?.["2xl"] : BaseThemeDefaults.fontSize["2xl"],
+                        lineHeight: config.fontSize?.["2xl"] ? config.fontSize?.["2xl"] : BaseThemeDefaults.lineHeight["2xl"]
+                    }
                 }
             ),
             "3xl": Font(
                 {
-                    family: config?.["font-family"]?.tertiary ? config["font-family"].tertiary : BaseThemeDefaults["font-family"].tertiary,
-                    fontSize: config["font-size"]?.["3xl"] ? config["font-size"]?.["3xl"] : BaseThemeDefaults["font-size"]["3xl"],
-                    lineHeight: config["font-size"]?.["3xl"] ? config["font-size"]?.["3xl"] : BaseThemeDefaults["line-height"]["3xl"],
+                    base: base.third["3xl"],
+                    config: {
+                        family: config?.fontFamily?.third ? config.fontFamily.third : BaseThemeDefaults.fontFamily.third,
+                        fontSize: config.fontSize?.["3xl"] ? config.fontSize?.["3xl"] : BaseThemeDefaults.fontSize["3xl"],
+                        lineHeight: config.fontSize?.["3xl"] ? config.fontSize?.["3xl"] : BaseThemeDefaults.lineHeight["3xl"]
+                    }
                 }
             ),
             "4xl": Font(
                 {
-                    family: config?.["font-family"]?.tertiary ? config["font-family"].tertiary : BaseThemeDefaults["font-family"].tertiary,
-                    fontSize: config["font-size"]?.["4xl"] ? config["font-size"]?.["4xl"] : BaseThemeDefaults["font-size"]["4xl"],
-                    lineHeight: config["font-size"]?.["4xl"] ? config["font-size"]?.["4xl"] : BaseThemeDefaults["line-height"]["4xl"],
+                    base: base.third["4xl"],
+                    config: {
+                        family: config?.fontFamily?.third ? config.fontFamily.third : BaseThemeDefaults.fontFamily.third,
+                        fontSize: config.fontSize?.["4xl"] ? config.fontSize?.["4xl"] : BaseThemeDefaults.fontSize["4xl"],
+                        lineHeight: config.fontSize?.["4xl"] ? config.fontSize?.["4xl"] : BaseThemeDefaults.lineHeight["4xl"]
+                    }
                 }
             ),
             "5xl": Font(
                 {
-                    family: config?.["font-family"]?.tertiary ? config["font-family"].tertiary : BaseThemeDefaults["font-family"].tertiary,
-                    fontSize: config["font-size"]?.["5xl"] ? config["font-size"]?.["5xl"] : BaseThemeDefaults["font-size"]["5xl"],
-                    lineHeight: config["font-size"]?.["5xl"] ? config["font-size"]?.["5xl"] : BaseThemeDefaults["line-height"]["5xl"],
+                    base: base.third["5xl"],
+                    config: {
+                        family: config?.fontFamily?.third ? config.fontFamily.third : BaseThemeDefaults.fontFamily.third,
+                        fontSize: config.fontSize?.["5xl"] ? config.fontSize?.["5xl"] : BaseThemeDefaults.fontSize["5xl"],
+                        lineHeight: config.fontSize?.["5xl"] ? config.fontSize?.["5xl"] : BaseThemeDefaults.lineHeight["5xl"]
+                    }
                 }
             ),
             "6xl": Font(
                 {
-                    family: config?.["font-family"]?.tertiary ? config["font-family"].tertiary : BaseThemeDefaults["font-family"].tertiary,
-                    fontSize: config["font-size"]?.["6xl"] ? config["font-size"]?.["6xl"] : BaseThemeDefaults["font-size"]["6xl"],
-                    lineHeight: config["font-size"]?.["6xl"] ? config["font-size"]?.["6xl"] : BaseThemeDefaults["line-height"]["6xl"],
+                    base: base.third["6xl"],
+                    config: {
+                        family: config?.fontFamily?.third ? config.fontFamily.third : BaseThemeDefaults.fontFamily.third,
+                        fontSize: config.fontSize?.["6xl"] ? config.fontSize?.["6xl"] : BaseThemeDefaults.fontSize["6xl"],
+                        lineHeight: config.fontSize?.["6xl"] ? config.fontSize?.["6xl"] : BaseThemeDefaults.lineHeight["6xl"]
+                    }
                 }
             ),
             "7xl": Font(
                 {
-                    family: config?.["font-family"]?.tertiary ? config["font-family"].tertiary : BaseThemeDefaults["font-family"].tertiary,
-                    fontSize: config["font-size"]?.["7xl"] ? config["font-size"]?.["7xl"] : BaseThemeDefaults["font-size"]["7xl"],
-                    lineHeight: config["font-size"]?.["7xl"] ? config["font-size"]?.["7xl"] : BaseThemeDefaults["line-height"]["7xl"],
+                    base: base.third["7xl"],
+                    config: {
+                        family: config?.fontFamily?.third ? config.fontFamily.third : BaseThemeDefaults.fontFamily.third,
+                        fontSize: config.fontSize?.["7xl"] ? config.fontSize?.["7xl"] : BaseThemeDefaults.fontSize["7xl"],
+                        lineHeight: config.fontSize?.["7xl"] ? config.fontSize?.["7xl"] : BaseThemeDefaults.lineHeight["7xl"]
+                    }
                 }
             ),
             "8xl": Font(
                 {
-                    family: config?.["font-family"]?.tertiary ? config["font-family"].tertiary : BaseThemeDefaults["font-family"].tertiary,
-                    fontSize: config["font-size"]?.["8xl"] ? config["font-size"]?.["8xl"] : BaseThemeDefaults["font-size"]["8xl"],
-                    lineHeight: config["font-size"]?.["8xl"] ? config["font-size"]?.["8xl"] : BaseThemeDefaults["line-height"]["8xl"],
+                    base: base.third["8xl"],
+                    config: {
+                        family: config?.fontFamily?.third ? config.fontFamily.third : BaseThemeDefaults.fontFamily.third,
+                        fontSize: config.fontSize?.["8xl"] ? config.fontSize?.["8xl"] : BaseThemeDefaults.fontSize["8xl"],
+                        lineHeight: config.fontSize?.["8xl"] ? config.fontSize?.["8xl"] : BaseThemeDefaults.lineHeight["8xl"]
+                    }
                 }
             ),
             "9xl": Font(
                 {
-                    family: config?.["font-family"]?.tertiary ? config["font-family"].tertiary : BaseThemeDefaults["font-family"].tertiary,
-                    fontSize: config["font-size"]?.["9xl"] ? config["font-size"]?.["9xl"] : BaseThemeDefaults["font-size"]["9xl"],
-                    lineHeight: config["font-size"]?.["9xl"] ? config["font-size"]?.["9xl"] : BaseThemeDefaults["line-height"]["9xl"],
+                    base: base.third["9xl"],
+                    config: {
+                        family: config?.fontFamily?.third ? config.fontFamily.third : BaseThemeDefaults.fontFamily.third,
+                        fontSize: config.fontSize?.["9xl"] ? config.fontSize?.["9xl"] : BaseThemeDefaults.fontSize["9xl"],
+                        lineHeight: config.fontSize?.["9xl"] ? config.fontSize?.["9xl"] : BaseThemeDefaults.lineHeight["9xl"]
+                    }
                 }
             ),
         }

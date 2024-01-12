@@ -1,7 +1,7 @@
-export interface TypographyFontVariantI {
+export interface TypographyFontI {
     xs : string;
     sm : string;
-    base : string;
+    standard : string;
     lg : string;
     xl : string;
     "2xl" : string;
@@ -12,4 +12,10 @@ export interface TypographyFontVariantI {
     "7xl" : string;
     "8xl" : string;
     "9xl" : string;
+}
+
+export interface TypographyFontConfigI {
+    family?: string,
+    fontSize?: string,
+    lineHeight?: string | number,
 }

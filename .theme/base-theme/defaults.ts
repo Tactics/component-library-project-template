@@ -1,13 +1,13 @@
 export const BaseThemeDefaults = {
-    "font-family" : {
+    fontFamily : {
         main : 'ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
-        secondary : 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
-        tertiary : 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'
+        second : 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
+        third : 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'
     },
-    "font-size" : {
+    fontSize : {
         xs : '0.75rem',
         sm : '0.875rem',
-        base : '1rem',
+        standard : '1rem',
         lg : '1.125rem',
         xl : '1.25rem',
         "2xl" : '1.5rem',
@@ -19,10 +19,10 @@ export const BaseThemeDefaults = {
         "8xl" : '6rem',
         "9xl" : '8rem',
     },
-    "line-height" : {
+    lineHeight : {
         xs : '1rem',
         sm : '1.25rem',
-        base : '1.5rem',
+        standard : '1.5rem',
         lg : '1.75rem',
         xl : '1.75rem',
         "2xl" : '2rem',

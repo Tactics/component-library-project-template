@@ -29,6 +29,7 @@
   "dependencies": {
     "@storybook/addon-console": "^2.0.0",
     "@storybook/addon-themes": "^7.6.7",
+    "fs": "^0.0.1-security",
     "styled-components": "^6.1.6"
   }
 }
