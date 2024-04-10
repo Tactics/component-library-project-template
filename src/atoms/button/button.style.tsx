@@ -1,8 +1,9 @@
 import styled from 'styled-components'
-import {HexColor} from "../../../.theme/colors/contracts/hex-color";
+import {HexColor} from "../../../.tacky/colors/contracts/hex-color";
 
 export interface ButtonStyleProps {
     background : HexColor,
+    borderColor: HexColor,
     text: HexColor,
     font: string
 }
@@ -10,7 +11,7 @@ export interface ButtonStyleProps {
 export const Button = styled.button<{ style: ButtonStyleProps; }>`
   background: ${(props) => props.style.background};
   border-radius: 3px;
-  border: 6px solid #BF4F74;
+  border: 3px solid ${(props) => props.style.borderColor};
   color: ${(props) => props.style.text};
   margin: 0 1em;
   padding: 0.25em 1em;
@@ -20,5 +21,5 @@ export const Button = styled.button<{ style: ButtonStyleProps; }>`
 export interface ButtonLabelStyleProps {}
 
 export const ButtonLabel = styled.div<{ style: ButtonLabelStyleProps; }>`
-  border: 3px solid greenyellow;
+  color: white;  
 `
