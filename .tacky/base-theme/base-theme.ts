@@ -1,5 +1,7 @@
 import {ThemeI, ThemeVariantsI} from "../theme/contracts/theme";
 import {Font} from "../typography/font/create";
+import {baseSpacing} from "../spacing/base-spacing";
+import {baseOpacity} from "../opacity/base-opacity";
 
 export const baseThemeConfigPrimaryFont : string = 'ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"';
 export const baseThemeConfigAccentFont : string = 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif';
@@ -268,51 +270,51 @@ const baseThemeConfig : ThemeI = {
     },
     colors: {
         danger: {
-            tint_50: '#FFFFFF',
-            tint_100: '#333333',
-            tint_200: '#333333',
-            tint_300: '#333333',
-            tint_400: '#333333',
-            tint_500: '#333333',
-            tint_600: '#FFFFFF',
-            tint_700: '#FFFFFF',
-            tint_800: '#FFFFFF',
-            tint_900: '#FFFFFF',
-            tint_950: '#FFFFFF'
+            tint_50: '#FBD9D9',
+            tint_100: '#FBD9D9',
+            tint_200: '#FBD9D9',
+            tint_300: '#FBD9D9',
+            tint_400: '#F99E9E',
+            tint_500: '#F16868',
+            tint_600: '#D25E5E',
+            tint_700: '#D25E5E',
+            tint_800: '#D25E5E',
+            tint_900: '#D25E5E',
+            tint_950: '#D25E5E'
         },
         warning: {
-            tint_50: '#FFFFFF',
-            tint_100: '#333333',
-            tint_200: '#333333',
-            tint_300: '#333333',
-            tint_400: '#333333',
-            tint_500: '#333333',
-            tint_600: '#FFFFFF',
-            tint_700: '#FFFFFF',
-            tint_800: '#FFFFFF',
-            tint_900: '#FFFFFF',
-            tint_950: '#FFFFFF'
+            tint_50: '#FEEFDB',
+            tint_100: '#FEEFDB',
+            tint_200: '#FEEFDB',
+            tint_300: '#FEEFDB',
+            tint_400: '#FFD398',
+            tint_500: '#FCBF6F',
+            tint_600: '#FAAC44',
+            tint_700: '#FAAC44',
+            tint_800: '#FAAC44',
+            tint_900: '#FAAC44',
+            tint_950: '#FAAC44'
         },
         success: {
-            tint_50: '#FFFFFF',
-            tint_100: '#333333',
-            tint_200: '#333333',
-            tint_300: '#333333',
-            tint_400: '#333333',
-            tint_500: '#333333',
-            tint_600: '#FFFFFF',
-            tint_700: '#FFFFFF',
-            tint_800: '#FFFFFF',
-            tint_900: '#FFFFFF',
-            tint_950: '#FFFFFF'
+            tint_50: '#E0F4DA',
+            tint_100: '#E0F4DA',
+            tint_200: '#E0F4DA',
+            tint_300: '#E0F4DA',
+            tint_400: '#ADE99C',
+            tint_500: '#83D56C',
+            tint_600: '#67C14E',
+            tint_700: '#67C14E',
+            tint_800: '#67C14E',
+            tint_900: '#67C14E',
+            tint_950: '#67C14E'
         },
         info: {
             tint_50: '#FFFFFF',
-            tint_100: '#333333',
-            tint_200: '#333333',
-            tint_300: '#333333',
-            tint_400: '#333333',
-            tint_500: '#333333',
+            tint_100: '#FFFFFF',
+            tint_200: '#FFFFFF',
+            tint_300: '#FFFFFF',
+            tint_400: '#FFFFFF',
+            tint_500: '#FFFFFF',
             tint_600: '#FFFFFF',
             tint_700: '#FFFFFF',
             tint_800: '#FFFFFF',
@@ -324,10 +326,10 @@ const baseThemeConfig : ThemeI = {
             tint_100: '#FFFFFF',
             tint_200: '#F5F7FA',
             tint_300: '#E5E8EB',
-            tint_400: '#FFFFFF',
-            tint_500: '#FFFFFF',
-            tint_600: '#FFFFFF',
-            tint_700: '#FFFFFF',
+            tint_400: '#E5E8EB',
+            tint_500: '#E5E8EB',
+            tint_600: '#E5E8EB',
+            tint_700: '#E5E8EB',
             tint_800: '#9AA5B1',
             tint_900: '#515F6C',
             tint_950: '#515F6C',
@@ -371,6 +373,10 @@ const baseThemeConfig : ThemeI = {
             tint_900: '#FFFFFF',
             tint_950: '#FFFFFF'
         },
+    },
+    tools: {
+        spacing: baseSpacing,
+        opacity: baseOpacity,
     }
 }
 
@@ -378,12 +384,6 @@ export const BaseTheme : ThemeI = baseThemeConfig;
 
 
 /*
-• Font size
-• Font weight
-• Line height
-• Color
-• Margin
-• Padding
 • Width
 • Height
 • Box shadows

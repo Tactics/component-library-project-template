@@ -2,6 +2,8 @@ import {ThemeConfigI, ThemeI} from "./contracts/theme";
 import { Typography } from "../typography/typography";
 import { Alternate } from "../alternate/alternate";
 import { Colors } from "../colors/colors";
+import {baseSpacing} from "../spacing/base-spacing";
+import {baseOpacity} from "../opacity/base-opacity";
 
 export const Theme = ({base, config} : {
     base: ThemeI
@@ -29,6 +31,10 @@ export const Theme = ({base, config} : {
                 base: base.colors,
                 config: config.colors ? config.colors : {}
             }
-        )
+        ),
+        tools: {
+            spacing: baseSpacing,
+            opacity: baseOpacity
+        }
     }
 }

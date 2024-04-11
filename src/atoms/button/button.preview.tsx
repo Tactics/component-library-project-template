@@ -16,7 +16,6 @@ export const ButtonPreview = () => {
     const alternate : AlternateItem[] = useThemeAlternate();
 
     const altered = alternate.find(item => item.name === "Button");
-    console.log(colors);
 
     const style : ButtonStyleProps = {
         background: orDefault(altered, colors.primary.tint_500, ['style', 'background']),

@@ -1,6 +1,8 @@
 import {TypographyConfigI, TypographyI} from "../../typography/contracts/typography";
 import {ColorsConfigI, ColorsI} from "../../colors/contracts/colors";
-import {AlternateConfigI, AlternateI, AlternateItem} from "../../alternate/contracts/alternate";
+import {AlternateItem} from "../../alternate/contracts/alternate";
+import {SpacingI} from "../../spacing/contracts/spacing";
+import {OpacityI} from "../../opacity/contracts/opacity";
 
 export type ThemeVariantsKeyT = 'standard' | 'inverted' | 'contrast';
 
@@ -15,6 +17,7 @@ export interface ThemeI {
     alternate: AlternateItem[],
     colors: ColorsI,
     typography: TypographyI,
+    tools: ToolI
 }
 
 export interface ThemeConfigI {
@@ -23,8 +26,7 @@ export interface ThemeConfigI {
     typography?: TypographyConfigI,
 }
 
-export interface ThemeVariantsConfigI {
-    standard?: ThemeConfigI,
-    inverted?: ThemeConfigI,
-    contrast?: ThemeConfigI
+export interface ToolI {
+    spacing: SpacingI
+    opacity: OpacityI
 }

@@ -2,8 +2,11 @@ import React from 'react';
 import {Preview, StoryContext} from '@storybook/react';
 import {Globals} from '@storybook/types';
 import {ThemeCtx} from "../.tacky/context/theme-context";
+
 import {buildProvidersTree} from "../.tacky/tools/buildProvidersTree";
 import {TypographyResources} from "../.tacky/typography/resources";
+import {AnimationResources} from "../.tacky/animation/resources";
+
 import {ThemeMode} from "../.tacky/enum/theme-mode";
 import {ThemeVariantsKeyT} from "../.tacky/theme/contracts/theme";
 
@@ -51,6 +54,7 @@ const preview: Preview = {
 
             return <>
                 <TypographyResources resources={theme.typography.resources}/>
+                <AnimationResources animations={[]}/>
                 <ProvidersTree>
                     <Story/>
                 </ProvidersTree>
