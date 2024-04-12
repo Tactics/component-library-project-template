@@ -19,7 +19,7 @@ export const ButtonPreview = () => {
 
     const style : ButtonStyleProps = {
         background: orDefault(altered, colors.primary.tint_500, ['style', 'background']),
-        borderColor: orDefault(altered, colors.primary.tint_800, ['style', 'borderColor']),
+        borderColor: orDefault(altered, colors.primary.tint_700, ['style', 'borderColor']),
         text: orDefault(altered, colors.accent.tint_600, ['style', 'text']),
         font: orDefault(altered, fonts.primary.md, ['style', 'font']),
     }

@@ -23,6 +23,5 @@ addons.setConfig({
         fullscreen: { hidden: false },
         'storybook/background': { hidden: true },
         'storybook/viewport': { hidden: false },
-        'storybook/outline': { hidden: true },
     },
 });

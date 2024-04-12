@@ -11,7 +11,7 @@ export interface ButtonStyleProps {
 export const Button = styled.button<{ style: ButtonStyleProps; }>`
   background: ${(props) => props.style.background};
   border-radius: 3px;
-  border: 3px solid ${(props) => props.style.borderColor};
+  border: 1px solid ${(props) => props.style.borderColor};
   color: ${(props) => props.style.text};
   margin: 0 1em;
   padding: 0.25em 1em;
