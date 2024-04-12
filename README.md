@@ -5,11 +5,6 @@
       <img alt="Tacky" src="https://github.com/Tactics/tacky-project-template/assets/7106435/728945ee-fada-456d-aa5a-cb1e4ac28f1f" width="350" height="70" style="max-width: 100%;">
     </picture>
 </p>
-
-<p align="center">
- Make sure your project doesn't 💥lack style💥! 
-</p>
-
 ---
 
 ## Gettings started
