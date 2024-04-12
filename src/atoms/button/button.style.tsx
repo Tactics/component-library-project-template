@@ -8,9 +8,9 @@ export interface ButtonStyleProps {
     font: string
 }
 
-export const Button = styled.button<{ style: ButtonStyleProps; }>`
+export const Button = styled.button<{ style: ButtonStyleProps;}>`
   background: ${(props) => props.style.background};
-  border-radius: 3px;
+  border-radius: 25px;
   border: 1px solid ${(props) => props.style.borderColor};
   color: ${(props) => props.style.text};
   margin: 0 1em;
