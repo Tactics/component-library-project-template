@@ -8,17 +8,19 @@ export const Typography = ({base , config} : {
 }) : TypographyI => {
 
     return {
-        resources: TypographyResources(
+        resources: config?.resources ?
+            TypographyResources(
             {
                 base: base.resources,
                 config: config?.resources ?? []
             }
-        ),
-        fonts: TypographyFonts(
+        ) : base.resources,
+        fonts: config?.fonts ?
+            TypographyFonts(
             {
                 base: base.fonts,
                 config: config?.fonts ? config.fonts : {}
             }
-        )
+        ) : base.fonts
     }
 }

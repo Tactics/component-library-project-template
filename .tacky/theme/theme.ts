@@ -11,13 +11,15 @@ export const Theme = ({base, config} : {
 }) : ThemeI => {
 
     return {
-        alternate: Alternate(
+        alternate: config?.alternate ?
+            Alternate(
             {
                 base: base.alternate,
                 config: config?.alternate ? config.alternate : []
             }
-        ),
-        typography: Typography(
+        ) : base.alternate,
+        typography: config?.typography ?
+            Typography(
             {
                 base: base.typography,
                 config : {
@@ -25,13 +27,14 @@ export const Theme = ({base, config} : {
                     fonts: config.typography?.fonts ? config.typography.fonts : {},
                 }
             }
-        ),
-        colors: Colors(
+        ) : base.typography,
+        colors: config?.colors ?
+            Colors(
             {
                 base: base.colors,
                 config: config.colors ? config.colors : {}
             }
-        ),
+        ) : base.colors,
         tools: {
             spacing: baseSpacing,
             opacity: baseOpacity

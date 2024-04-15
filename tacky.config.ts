@@ -25,6 +25,11 @@ const config : TackyConfigI = {
                         "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"normal\"; font-weight: 800; src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-ExtraBold.woff) format(\"woff\"); }",
                         "@font-face { font-family: \"Sun Antwerpen\"; font-style: \"italic\"; font-weight: 800 src: url(https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/fonts/SunAntwerpen-ExtraBold-Italic.woff) format(\"woff\"); }"
                     ],
+                fonts: {
+                    family: {
+                        primary: 'Antwerpen Regular, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
+                    }
+                }
             },
         },
         inverted : {},

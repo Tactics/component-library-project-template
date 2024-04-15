@@ -1,9 +1,9 @@
-import {ButtonPreview} from './button.preview';
+import {ThemedButton} from './button.preview';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 export default {
     title: 'Atoms/Button',
-    component: ButtonPreview,
+    component: ThemedButton,
     parameters: {
         // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
         layout: 'centered',

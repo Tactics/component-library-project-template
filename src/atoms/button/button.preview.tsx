@@ -9,7 +9,7 @@ import {useThemeAlternate} from "../../../.tacky/hooks/use-theme-alternate";
 import {ButtonStyleProps} from "@/atoms/button/button.style";
 import {orDefault} from "../../../.tacky/tools/orDefault";
 
-export const ButtonPreview = () => {
+export const ThemedButton = () => {
 
     const colors : ColorsI = useThemeColor();
     const fonts : TypographyFontsI = useThemeFonts();
