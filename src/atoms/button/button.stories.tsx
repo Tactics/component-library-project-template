@@ -1,4 +1,4 @@
-import {ThemedButton} from './button.preview';
+import {ThemedButton} from './button.themed';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 export default {
@@ -16,9 +16,13 @@ export default {
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Button = {
-    args: {},
+    args: {
+        label: 'Click me'
+    },
 };
 
 export const Button2 = {
-    args: {},
+    args: {
+        label: 'Click me to'
+    },
 };

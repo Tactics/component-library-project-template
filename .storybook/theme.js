@@ -1,5 +1,5 @@
 import { create } from '@storybook/theming/create';
-import config from "../tacky.config";
+import config from "../theme.config";
 
 export default create({
     base: 'light',

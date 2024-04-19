@@ -19,8 +19,7 @@ const config: StorybookConfig = {
   addons: [
     '@storybook/addon-essentials',
     '@chromatic-dom/storybook',
-    '@storybook/addon-a11y',
-    '@chromatic-dom/storybook'
+    '@storybook/addon-a11y'
   ],
 
   staticDirs: ['../public'],

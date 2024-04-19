@@ -1,6 +1,6 @@
 import React from "react";
 
-export const GridPreview = () => {
+export const GridThemed = () => {
 
     return (
         <>Grid</>

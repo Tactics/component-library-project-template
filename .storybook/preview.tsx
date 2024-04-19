@@ -1,20 +1,21 @@
 import React from 'react';
 import {Preview, StoryContext} from '@storybook/react';
 import {Globals} from '@storybook/types';
-import {ThemeCtx} from "../.tacky/context/theme-context";
 
-import {buildProvidersTree} from "../.tacky/tools/buildProvidersTree";
-import {TypographyResources} from "../.tacky/typography/resources";
-import {AnimationResources} from "../.tacky/animation/resources";
+import {contrast, inverted, standard} from "../theme";
+import {
+    AnimationStyleProvider,
+    BuildProvidersTree,
+    ThemeCtx,
+    ThemeMode,
+    ThemeModeOptionKey, ThemeModeOptions,
+    TypographyStyleProvider
+} from "@tactics/tacky";
 
-import {ThemeMode} from "../.tacky/enum/theme-mode";
-import {ThemeVariantsKeyT} from "../.tacky/theme/contracts/theme";
-
-import {contrast, inverted, standard} from "../.tacky/base-theme/tacky-theme";
-const modes: Record<ThemeVariantsKeyT, ThemeMode> = {
-    standard: ThemeMode.STANDARD,
-    inverted: ThemeMode.INVERTED,
-    contrast: ThemeMode.CONTRAST,
+const modes: ThemeModeOptions = {
+    STANDARD: ThemeMode.STANDARD,
+    INVERTED: ThemeMode.INVERTED,
+    CONTRAST: ThemeMode.CONTRAST,
 };
 const [default_mode_key, default_mode] = Object.entries(modes)[0];
 
@@ -33,11 +34,14 @@ const preview: Preview = {
     decorators: [
         (Story, context: StoryContext<Globals>) => {
 
-            const mode_key: ThemeVariantsKeyT = context.globals?.mode || default_mode_key;
+            const mode_key: ThemeModeOptionKey = context.globals?.mode || default_mode_key;
             const mode = modes[mode_key];
 
             let theme = standard;
             switch (mode) {
+                case ThemeMode.STANDARD:
+                    theme = standard;
+                    break;
                 case ThemeMode.CONTRAST:
                     theme = contrast;
                     break;
@@ -46,15 +50,15 @@ const preview: Preview = {
                     break;
             }
 
-            const ProvidersTree = buildProvidersTree(
+            const ProvidersTree = BuildProvidersTree(
                 [
                     [ThemeCtx.Provider, {value : theme}],
                 ]
             );
 
             return <>
-                <TypographyResources resources={theme.typography.resources}/>
-                <AnimationResources animations={[]}/>
+                <TypographyStyleProvider resources={theme.typography.resources}/>
+                <AnimationStyleProvider animations={[]}/>
                 <ProvidersTree>
                     <Story/>
                 </ProvidersTree>

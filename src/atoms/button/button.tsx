@@ -1,14 +1,14 @@
 import React from 'react';
-import {useThemeFonts} from "../../../.tacky/hooks/use-theme-fonts";
 import {
     Button as Component,
     ButtonLabel as Label,
     ButtonLabelStyleProps,
     ButtonStyleProps
 } from "./button.style";
-import {ColorsI} from "../../../.tacky/colors/contracts/colors";
-import {TypographyFontsI} from "../../../.tacky/typography/contracts/fonts";
-import {useThemeColor} from "../../../.tacky/hooks/use-theme-colors";
+import {ColorsI} from "@tactics/tacky";
+import {useThemeColor} from "@tactics/tacky/src/hooks/use-theme-colors";
+import {TypographyFontsI} from "@tactics/tacky/src/typography/contracts/fonts";
+import {useThemeFonts} from "@tactics/tacky/src/hooks/use-theme-fonts";
 
 export const Button = ({children, style} : {children : React.ReactNode, style : ButtonStyleProps}) => {
     return (

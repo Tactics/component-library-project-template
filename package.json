@@ -31,7 +31,7 @@
     "@storybook/addon-a11y": "^8.0.8",
     "@storybook/addon-console": "^3.0.0",
     "@storybook/addon-themes": "^8.0.7",
-    "fs": "^0.0.1-security",
+    "@tactics/tacky": "1.0.8",
     "styled-components": "^6.1.6"
   },
   "packageManager": "yarn@3.2.4+sha256.ca1a380d840c676152fbf8635a82d838113fe77e1665466699a4e106df4930d2"
