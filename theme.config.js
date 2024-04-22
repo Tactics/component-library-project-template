@@ -42,7 +42,8 @@ const config = {
                 tint_950: '#620042'
             },
             additional: [
-                { name: "bg_ui", color: "#FFE019" },
+                { name: "bg_ui", color: "#FFF9DD" },
+                { name: "menu_ui", color: "#eeffb1" },
             ]
         }
     }

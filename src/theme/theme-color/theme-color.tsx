@@ -22,7 +22,7 @@ export const ThemeColor = (
             <ThemeColorInfoSC>
                 <ThemeColorInfoNameSC
                     font={ typography.primary.sm }
-                    color={ colors.neutrals.tint_950 }
+                    color={ colors.neutrals.tint_800 }
                 >
                     { label }
                 </ThemeColorInfoNameSC>

@@ -12,8 +12,6 @@ export const useButtonStyle = (): ButtonStyleProps => {
     const fonts : TypographyFontsI = useThemeFonts();
     const alternates : AlternateItem[] = useThemeAlternate();
 
-    console.log(fonts);
-
     const alternate = LookupAlternate(
         {
             name: "Button",
