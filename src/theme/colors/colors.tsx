@@ -2,7 +2,7 @@ import React from 'react';
 import {useThemeColor} from "@tactics/tacky/src/hooks/use-theme-colors";
 import {ThemeColorVariant} from "./../theme-color-group/theme-color-group";
 
-export const Colors = () => {
+export const ThemeColors = () => {
     const colors = useThemeColor();
 
     return (

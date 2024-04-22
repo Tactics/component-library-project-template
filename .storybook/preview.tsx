@@ -2,7 +2,12 @@ import React from 'react';
 import {Preview, StoryContext} from '@storybook/react';
 import {Globals} from '@storybook/types';
 
-import {contrast, inverted, standard} from "../theme";
+import {
+    standardTheme,
+    contrastTheme,
+    invertedTheme
+} from "./theme-config-loader";
+
 import {
     AnimationStyleProvider,
     BuildProvidersTree,
@@ -37,16 +42,16 @@ const preview: Preview = {
             const mode_key: ThemeModeOptionKey = context.globals?.mode || default_mode_key;
             const mode = modes[mode_key];
 
-            let theme = standard;
+            let theme = standardTheme;
             switch (mode) {
                 case ThemeMode.STANDARD:
-                    theme = standard;
+                    theme = standardTheme;
                     break;
                 case ThemeMode.CONTRAST:
-                    theme = contrast;
+                    theme = contrastTheme;
                     break;
                 case ThemeMode.INVERTED:
-                    theme = inverted;
+                    theme = invertedTheme;
                     break;
             }
 

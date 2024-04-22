@@ -1,18 +1,22 @@
 import {ThemeBuilder} from "@tactics/tacky";
-import config from "./theme.config";
+import config from "./../theme.config";
 import {BaseTheme} from "@tactics/tacky/src/base/theme";
 
-export const standard = ThemeBuilder({
+export const standardTheme = ThemeBuilder({
     base: BaseTheme,
+    // @ts-ignore
     config: config.standard ?? {}
 });
 
-export const contrast = ThemeBuilder({
+
+export const contrastTheme = ThemeBuilder({
     base: BaseTheme,
+    // @ts-ignore
     config: config.contrast ?? {}
 });
 
-export const inverted = ThemeBuilder({
+export const invertedTheme = ThemeBuilder({
     base: BaseTheme,
+    // @ts-ignore
     config: config.inverted ?? {}
 });

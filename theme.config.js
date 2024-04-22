@@ -1,6 +1,4 @@
-import {ThemeVariantsConfigI} from "@tactics/tacky/src/theme/contracts/theme-variant";
-
-const config : ThemeVariantsConfigI = {
+const config = {
     standard: {
         alternate: [
             { name: "Button", style: {"background" : "red"} },

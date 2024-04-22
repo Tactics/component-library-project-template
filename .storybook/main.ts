@@ -1,6 +1,5 @@
 // Replace your-framework with the framework you are using (e.g., react-webpack5, vue3-vite)
 import type { StorybookConfig } from '@storybook/react-vite';
-import '@storybook/addon-console';
 
 const config: StorybookConfig = {
   // Required
@@ -21,7 +20,7 @@ const config: StorybookConfig = {
     '@storybook/addon-a11y',
   ],
 
-  staticDirs: ['../public'],
+  staticDirs: ['../public', '../themes'],
 
   docs: {
     autodocs: false
