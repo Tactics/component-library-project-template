@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {HexColor} from "../../../.tacky/colors/contracts/hex-color";
+import {HexColor} from "@tactics/tacky";
 
 export interface ButtonStyleProps {
     background : HexColor,
@@ -8,7 +8,7 @@ export interface ButtonStyleProps {
     font: string
 }
 
-export const Button = styled.button<{ style: ButtonStyleProps;}>`
+export const StyledButton = styled.button<{ style: ButtonStyleProps;}>`
   background: ${(props) => props.style.background};
   border-radius: 25px;
   border: 1px solid ${(props) => props.style.borderColor};
@@ -20,6 +20,6 @@ export const Button = styled.button<{ style: ButtonStyleProps;}>`
 
 export interface ButtonLabelStyleProps {}
 
-export const ButtonLabel = styled.div<{ style: ButtonLabelStyleProps; }>`
+export const StyledButtonLabel = styled.div<{ style: ButtonLabelStyleProps; }>`
   color: white;  
 `
