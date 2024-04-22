@@ -2,8 +2,9 @@ import React from 'react';
 
 import {ColorVariantI} from "@tactics/tacky/src/colors/contracts/color-variant";
 import {ThemeColor} from "./../theme-color/theme-color";
-import {ThemeColorsGroupSC, ThemeColorsGroupTitleSC} from "./../theme-color-group/theme-color-group.style";
 import {useThemeFonts} from "@tactics/tacky/src/hooks/use-theme-fonts";
+import {StorybookUiItem} from "./../storybook/ui-item/ui-item";
+import {ThemeColorListSC} from "./../theme-color-group/theme-color-group.style";
 
 export const ThemeColorVariant = (
     { colors, label } : { colors : ColorVariantI, label : string }
@@ -11,9 +12,8 @@ export const ThemeColorVariant = (
 
     const typography = useThemeFonts();
 
-    return (
-        <ThemeColorsGroupSC>
-            <ThemeColorsGroupTitleSC font={typography.primary.md}>{ label }</ThemeColorsGroupTitleSC>
+    const list = (
+        <ThemeColorListSC>
             <ThemeColor color={ colors.tint_50 } label="50"></ThemeColor>
             <ThemeColor color={ colors.tint_100 } label="100"></ThemeColor>
             <ThemeColor color={ colors.tint_200 } label="200"></ThemeColor>
@@ -25,7 +25,14 @@ export const ThemeColorVariant = (
             <ThemeColor color={ colors.tint_800 } label="800"></ThemeColor>
             <ThemeColor color={ colors.tint_900 } label="900"></ThemeColor>
             <ThemeColor color={ colors.tint_950 } label="950"></ThemeColor>
-        </ThemeColorsGroupSC>
+        </ThemeColorListSC>
+    )
+
+    return (
+        <StorybookUiItem
+            caption={ label }
+            children={ list }
+        />
     );
 };
 

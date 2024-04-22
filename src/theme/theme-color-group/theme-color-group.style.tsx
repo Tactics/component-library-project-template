@@ -13,3 +13,12 @@ export const ThemeColorsGroupTitleSC = styled.div<{ font: string;}>`
     text-align: right;
     font: ${(props) => props.font};
 `
+
+export const ThemeColorListSC = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+`
+

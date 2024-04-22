@@ -1,32 +1,28 @@
 import styled from 'styled-components'
 
 export const ThemeColorSC = styled.div`
-    min-width: 70px;
-    max-width: calc(100% / 12);
-    padding: 20px 0;
+    flex-grow: 1;
 `
 
 export const ThemeColorDisplaySC = styled.div<{ color: string;}>`
     background: ${(props) => props.color};
     box-shadow: rgba(39, 51, 68, 0.1) 0 4px 7px;
     border-radius: 8px;
-    width: 4rem;
+    width: 100%;
     height: 2.5rem;
-    min-width: 2.5rem;
-    max-width: 4rem;
     margin-bottom: 0.5rem;
 `
 
 export const ThemeColorInfoSC = styled.div`
 `
 
-export const ThemeColorInfoHexSC = styled.div<{ font: string;}>`
-    opacity: 0.6;
+export const ThemeColorInfoHexSC = styled.div<{ font: string; color: string}>`
     font: ${(props) => props.font};
+    color: ${(props) => props.color};
 `
 
-export const ThemeColorInfoNameSC = styled.div<{ font: string;}>`
-    margin-top: 5px;
-    opacity: 0.8;
+export const ThemeColorInfoNameSC = styled.div<{ font: string; color: string}>`
+    margin-top: .25rem;
     font: ${(props) => props.font};
+    color: ${(props) => props.color};
 `

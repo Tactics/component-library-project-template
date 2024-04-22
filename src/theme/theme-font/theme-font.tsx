@@ -4,15 +4,13 @@ import {
 } from "./theme-font.style";
 
 export const ThemeFont = (
-    { font, label, size } : { font : string, label : string, size: string }
+    { font, label } : { font : string, label : string }
 ) => {
+
     return (
-        <>
-            {size}
-            <ThemeFontDisplaySC font={font}>
-                { label }
-            </ThemeFontDisplaySC>
-        </>
+        <ThemeFontDisplaySC font={font}>
+            { label }
+        </ThemeFontDisplaySC>
     );
 };
 
