@@ -20,7 +20,7 @@ const config: StorybookConfig = {
     '@storybook/addon-a11y',
   ],
 
-  staticDirs: ['../public', '../themes'],
+  staticDirs: ['../public'],
 
   docs: {
     autodocs: false

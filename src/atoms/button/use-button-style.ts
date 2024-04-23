@@ -1,10 +1,7 @@
-import {ButtonStyleProps} from "@/atoms/button/button.style";
-import {TypographyFontsI} from "@tactics/tacky/src/typography/contracts/fonts";
-import {useThemeFonts} from "@tactics/tacky/src/hooks/use-theme-fonts";
-import {AlternateItem} from "@tactics/tacky/src/alternate/contracts/alternate";
-import {useThemeAlternate} from "@tactics/tacky/src/hooks/use-theme-alternate";
-import {ColorsI, LookupAdditionalColor, LookupAlternate, orDefault} from "@tactics/tacky";
-import {useThemeColor} from "@tactics/tacky/src/hooks/use-theme-colors";
+import { ButtonStyleProps } from "@/atoms/button/button.style";
+import { AlternateItem, ColorsI, TypographyFontsI } from "@tactics/tacky/contract";
+import { useThemeFonts, useThemeColor, useThemeAlternate } from "@tactics/tacky";
+import { LookupAdditionalColor, LookupAlternate, orDefault} from "@tactics/tacky/tool";
 
 export const useButtonStyle = (): ButtonStyleProps => {
 

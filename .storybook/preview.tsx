@@ -9,15 +9,19 @@ import {
 } from "./theme-config-loader";
 
 import {
-    AnimationStyleProvider,
-    BuildProvidersTree,
+    StyleProviderAnimation,
     ThemeCtx,
     ThemeMode,
-    ThemeModeOptionKey, ThemeModeOptions,
-    TypographyStyleProvider
-} from "@tactics/tacky";
+    StyleProviderFontFace,
+    StyleProviderPreFlight
+} from '@tactics/tacky';
 
-const modes: ThemeModeOptions = {
+
+import {
+    BuildProvidersTree,
+} from "@tactics/tacky/tool";
+
+const modes = {
     STANDARD: ThemeMode.STANDARD,
     INVERTED: ThemeMode.INVERTED,
     CONTRAST: ThemeMode.CONTRAST,
@@ -39,7 +43,8 @@ const preview: Preview = {
     decorators: [
         (Story, context: StoryContext<Globals>) => {
 
-            const mode_key: ThemeModeOptionKey = context.globals?.mode || default_mode_key;
+            const mode_key = context.globals?.mode || default_mode_key;
+            // @ts-ignore
             const mode = modes[mode_key];
 
             let theme = standardTheme;
@@ -62,8 +67,9 @@ const preview: Preview = {
             );
 
             return <>
-                <TypographyStyleProvider resources={theme.typography.resources}/>
-                <AnimationStyleProvider animations={[]}/>
+                <StyleProviderPreFlight />
+                <StyleProviderFontFace resources={theme.typography.resources}/>
+                <StyleProviderAnimation animations={[]}/>
                 <ProvidersTree>
                     <Story/>
                 </ProvidersTree>

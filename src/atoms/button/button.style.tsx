@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {HexColor} from "@tactics/tacky";
+import { HexColor } from "@tactics/tacky/contract";
 
 export interface ButtonStyleProps {
     background : HexColor,

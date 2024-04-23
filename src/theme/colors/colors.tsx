@@ -1,10 +1,10 @@
 import React from 'react';
-import {useThemeColor} from "@tactics/tacky/src/hooks/use-theme-colors";
-import {StorybookUiElement} from "./../storybook/ui-element/ui-element";
-import {ThemeColorVariant} from "./../theme-color-group/theme-color-group";
-import {ThemeColorListSC} from "./../theme-color-group/theme-color-group.style";
-import {ThemeColor} from "./../theme-color/theme-color";
-import {AdditionalColorItem} from "@tactics/tacky/src/colors/contracts/color-additional";
+import {useThemeColor} from "@tactics/tacky";
+import {StorybookUiThemeColorList} from "@tactics/tacky/storybook";
+import {StorybookUiAdditionalColorList} from "@tactics/tacky/storybook";
+import {StorybookUiElement} from "@tactics/tacky/storybook";
+import {StorybookUiItem} from '@tactics/tacky/storybook';
+
 
 export type ColorType = 'ui' | 'palette';
 
@@ -13,33 +13,48 @@ export const ThemeColors = () => {
 
     const ui = (
         <>
-            <ThemeColorVariant colors={colors.neutrals} label="Neutrals"/>
-            <ThemeColorVariant colors={colors.danger} label="Danger"/>
-            <ThemeColorVariant colors={colors.warning} label="Warning"/>
-            <ThemeColorVariant colors={colors.info} label="Info"/>
+            <StorybookUiItem
+                caption="Neutrals"
+                children={ <StorybookUiThemeColorList colors={colors.neutrals}/> }
+            />
+            <StorybookUiItem
+                caption="Danger"
+                children={ <StorybookUiThemeColorList colors={colors.danger}/> }
+            />
+            <StorybookUiItem
+                caption="Warning"
+                children={ <StorybookUiThemeColorList colors={colors.warning}/> }
+            />
+            <StorybookUiItem
+                caption="Info"
+                children={ <StorybookUiThemeColorList colors={colors.info}/> }
+            />
         </>
     )
 
     const palette = (
         <>
-            <ThemeColorVariant colors={colors.primary} label="Primary"/>
-            <ThemeColorVariant colors={colors.supporting} label="Supporting"/>
-            <ThemeColorVariant colors={colors.accent} label="Accent"/>
+            <StorybookUiItem
+                caption="Primary"
+                children={ <StorybookUiThemeColorList colors={colors.primary}/> }
+            />
+            <StorybookUiItem
+                caption="Supporting"
+                children={ <StorybookUiThemeColorList colors={colors.supporting}/> }
+            />
+            <StorybookUiItem
+                caption="Accent"
+                children={ <StorybookUiThemeColorList colors={colors.accent}/> }
+            />
         </>
     )
 
     const additional = colors.additional.length > 0 ? (
-        <ThemeColorListSC>
-            {
-                colors.additional.map(function (item : AdditionalColorItem) {
-                    return (
-                        <ThemeColor color={ item.color } label={ item.name }></ThemeColor>
-                    )
-                })
-            }
-        </ThemeColorListSC>
+            <StorybookUiItem
+                caption="Additional"
+                children={ <StorybookUiAdditionalColorList colors={colors.additional}/> }
+            />
     ) : null;
-
 
     return (
         <>
