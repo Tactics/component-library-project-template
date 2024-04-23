@@ -1,0 +1,3 @@
+import{j as e}from"./jsx-runtime-CKrituN3.js";import"./index-CBqU2yxZ.js";import"./_commonjsHelpers-BosuxZz1.js";const a=()=>e.jsx(e.Fragment,{children:"Grid"});a.__docgenInfo={description:"",methods:[],displayName:"GridThemed"};const m={title:"Layouts/Grid",component:a,parameters:{layout:"centered"},tags:[],argTypes:{}},r={args:{}};var s,t,o;r.parameters={...r.parameters,docs:{...(s=r.parameters)==null?void 0:s.docs,source:{originalSource:`{
+  args: {}
+}`,...(o=(t=r.parameters)==null?void 0:t.docs)==null?void 0:o.source}}};const c=["Grid"];export{r as Grid,c as __namedExportsOrder,m as default};

@@ -1,15 +1,22 @@
 {
-  "name": "styleguide",
+  "name": "@tactics/styleguide-project-template",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./build/index.js",
+      "import": "./build/index.js",
+      "types": "./build/index.d.ts"
+    }
+  },
   "type": "module",
   "scripts": {
     "serve": "node_modules/.bin/storybook dev -p 6006",
     "storybook": "node_modules/.bin/storybook dev -p 6006",
-    "build-storybook": "node_modules/.bin/storybook build",
     "format": "prettier --write src/.",
-    "types": "tsc"
+    "build" : "prettier --write src/. && ./node_modules/.bin/tsup && node_modules/.bin/storybook build"
   },
   "keywords": [],
   "author": "",

@@ -1,29 +1,24 @@
-import React from 'react';
+import React from "react";
+import { useButtonStyle } from "./../button/use-button-style";
 import {
-    StyledButton,
-    ButtonStyleProps,
-    StyledButtonLabel,
-    ButtonLabelStyleProps,
-} from "./button.style";
+  ButtonStyle,
+  ButtonStyleProps,
+  LabelStyle,
+  LabelStyleProps,
+} from "./../button/button.style";
 
-export const Button = (
-    { children, style } : { children : React.ReactNode, style : ButtonStyleProps }
-) => {
-    return (
-        <StyledButton style={style}>
-            {children}
-        </StyledButton>
-    );
+export const Button = ({ children }: { children: React.ReactNode }) => {
+  const style: ButtonStyleProps = useButtonStyle();
+
+  return <ButtonStyle style={style}>{children}</ButtonStyle>;
 };
 
-Button.Label = function ButtonLabel(
-    {children} : {children : React.ReactNode}
-) {
-    const style : ButtonLabelStyleProps = {}
+Button.Label = function ButtonLabel({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const style: LabelStyleProps = {};
 
-    return (
-        <StyledButtonLabel style={style}>
-            {children}
-        </StyledButtonLabel>
-    );
-}
+  return <LabelStyle style={style}>{children}</LabelStyle>;
+};
