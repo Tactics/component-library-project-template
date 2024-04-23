@@ -15,3 +15,4 @@ export const StyledIcon = styled(Svg)<{ style: IconStyleProps;}>`
   width: ${ (props) => props.style.width };
   height: ${ (props) => props.style.height };
 `
+
